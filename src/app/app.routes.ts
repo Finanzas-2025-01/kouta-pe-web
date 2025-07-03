@@ -1,8 +1,12 @@
 import { Routes } from '@angular/router';
-import {LogInComponent} from './iam/pages/log-in/log-in.component';
+import {MainComponent} from './public/pages/main/main.component';
+import {SignInComponent} from './iam/pages/sign-in/sign-in.component';
+import {SignUpComponent} from './iam/pages/sign-up/sign-up.component';
 
 
 export const routes: Routes = [
-  {path: 'log-in', component: LogInComponent},
-  {path : '', redirectTo: '/log-in', pathMatch: 'full'},
+  {path: '/' , component: MainComponent},
+  {path: 'sign-in',component: SignInComponent},
+  {path: 'sign-up', component: SignUpComponent},
+  {path : '', redirectTo: '/', pathMatch: 'full'},
 ];
