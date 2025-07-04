@@ -1,9 +1,20 @@
+<mat-toolbar *ngIf="showToolbar" class="mat-toolbar">
+  <img class="logo" src='' alt='Kuota-pe-Logo'/>
+  <span><a [routerLink]="redirect" style="text-decoration: none; color: white">Kuota-Pe</a></span>
+  <span class="mat-spacer"></span>
+  <ng-container *ngIf="isIssuer">
+    @for (option of optionsIssuer; track option.title) {
+      <a mat-button [routerLink]="option.path" class="page-option"><p class="button-text">{{ option.title }}</p></a>
+    }
+  </ng-container>
+  <ng-container *ngIf="isBondHolder">
+    @for (option of optionsBondholder; track option.title) {
+      <a mat-button [routerLink]="option.path" class="page-option"><p class="button-text">{{ option.title }}</p></a>
+    }
+  </ng-container>
+</mat-toolbar>
 <div class="grid min-h-dvh" style="grid-template-rows: auto 1fr auto;">
-  <app-bond-header/>
   <main>
     <router-outlet />
   </main>
-  <app-bond-footer/>
 </div>
-
-

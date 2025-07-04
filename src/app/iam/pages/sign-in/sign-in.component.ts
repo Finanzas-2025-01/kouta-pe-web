@@ -14,6 +14,7 @@ import { MatIconModule } from '@angular/material/icon';
 import {AuthService} from '../../services/auth.service';
 import {SignInRequest} from '../../model/requests/sign-in.request';
 
+// @ts-ignore
 @Component({
   selector: 'app-sign-in',
   imports: [

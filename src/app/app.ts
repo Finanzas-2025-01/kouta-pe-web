@@ -1,14 +1,55 @@
-import { Component } from '@angular/core';
-import { RouterOutlet } from '@angular/router';
-import {BondFooterComponent} from './public/components/bond-footer/bond-footer.component';
-import {BondHeaderComponent} from './public/components/bond-header/bond-header.component';
+import {Component, ViewChild} from '@angular/core';
+import {Router, RouterLink, RouterOutlet} from '@angular/router';
+import {MatSidenav} from '@angular/material/sidenav';
+import {MatToolbar} from '@angular/material/toolbar';
+import {NgIf} from '@angular/common';
 
 @Component({
   selector: 'app-root',
-  imports: [RouterOutlet, BondFooterComponent, BondHeaderComponent],
+  imports: [RouterOutlet, MatToolbar, RouterLink, NgIf],
   templateUrl: './app.html',
   styleUrl: './app.css'
 })
 export class App {
-  protected title = 'kouta-pe';
+  title = 'kouta-pe';
+  showToolbar = true;
+  redirect = '';
+
+  @ViewChild(MatSidenav, {static: true}) sidenav!: MatSidenav;
+
+  optionsIssuer = [
+    {icon: '', path: '/issuers/my-bonds', title: 'Mis Bonos'},
+    {icon: '', path: '/bonds/create', title: 'Crear Bono'},
+  ];
+
+  optionsBondholder = [
+    {icon: '', path: '/bonds', title: 'Bonos'},
+    {icon: '', path: '/cond-holders/my-bonds', title: 'Mis Bonos'}
+  ];
+
+  constructor(private router: Router) {
+    this.router.events.subscribe(() => {
+      const currentRoute = this.router.url;
+
+      this.showToolbar = !(currentRoute.includes('login') || currentRoute.includes('register'));
+    });
+    this.setRedirect();
+  }
+
+  private setRedirect() {
+    if (this.isBondHolder) {
+      this.redirect = '/bonds';
+    } else {
+      this.redirect = '/issuers/my-bonds';
+    }
+  }
+
+  get isIssuer(): boolean {
+
+    return localStorage.getItem('role') === 'ROLE_ISSUER';
+  }
+
+  get isBondHolder(): boolean {
+    return localStorage.getItem('role') === 'ROLE_BONDHOLDER';
+  }
 }

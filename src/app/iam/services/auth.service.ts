@@ -74,7 +74,11 @@ export class AuthService {
           localStorage.setItem('token', response.token);
           localStorage.setItem('role', response.role.join(','));
 
-          this.router.navigate(['/']).then();
+          if(this.signedInUserType.value === 'ROLE_ISSUER') {
+            this.router.navigate(['/issuers/my-bonds']).then();
+          }else if (this.signedInUserType.value === 'ROLE_BONDHOLDER') {
+            this.router.navigate(['/bonds']).then();
+          }
         },
         error: (error) => {
           this.signedIn.next(false);
