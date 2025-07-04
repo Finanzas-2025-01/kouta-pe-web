@@ -14,6 +14,7 @@ import { MatIconModule } from '@angular/material/icon';
 import {MatOption, MatSelect} from '@angular/material/select';
 import {AuthService} from '../../services/auth.service';
 import {SignUpRequest} from '../../model/requests/sign-up.request';
+import {Router} from '@angular/router';
 
 @Component({
   selector: 'app-sign-up',
@@ -31,8 +32,8 @@ import {SignUpRequest} from '../../model/requests/sign-up.request';
     MatOption,
   ],
   template: `
-    <section class="grid place-items-center min-h-screen">
-      <form [formGroup]="form" (ngSubmit)="onSubmit()" class="p-4 max-w-5xl mx-auto w-full">
+    <section class="flex flex-col justify-center h-full">
+      <form [formGroup]="form" (ngSubmit)="onSubmit()" class="p-4 min-w-8/12 mx-auto ">
         <mat-card appearance="outlined">
           <mat-card-content>
             <div class="grid md:grid-cols-2 gap-6">
@@ -105,7 +106,7 @@ import {SignUpRequest} from '../../model/requests/sign-up.request';
             </div>
           </mat-card-content>
           <mat-card-actions align="end">
-            <a mat-button>Sign in instead</a>
+            <a mat-button (click)="onGotoSignIn()">Sign in instead</a>
             <button mat-flat-button type="submit">Sign Up</button>
           </mat-card-actions>
         </mat-card>
@@ -115,7 +116,7 @@ import {SignUpRequest} from '../../model/requests/sign-up.request';
   styles: ``
 })
 export class SignUpComponent {
-  constructor(private authService: AuthService) {
+  constructor(private authService: AuthService, private router: Router) {
   }
 
   form = new FormGroup({
@@ -149,5 +150,11 @@ export class SignUpComponent {
       [role]
     ));
   }
+
+  onGotoSignIn() {
+    this.router.navigate(['/sign-in']).then();
+  }
+
+
 
 }
