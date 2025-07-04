@@ -89,9 +89,6 @@ import {SignUpRequest} from '../../model/requests/sign-up.request';
                   @if (form.get('password')?.touched && form.get('password')?.hasError('required')) {
                     <mat-error>Password is required</mat-error>
                   }
-                  @if (form.get('password')?.touched && form.get('password')?.hasError('minlength')) {
-                    <mat-error>Password must be at least 5 characters</mat-error>
-                  }
                 </mat-form-field>
 
                 <mat-form-field class="w-full sm:col-span-2">
@@ -126,10 +123,7 @@ export class SignUpComponent {
     name: new FormControl('', [Validators.required]),
     surname: new FormControl('', [Validators.required]),
     email: new FormControl('', [Validators.required, Validators.email]),
-    password: new FormControl('', [
-      Validators.required,
-      Validators.minLength(5),
-    ]),
+    password: new FormControl('', [Validators.required]),
     role: new FormControl('', [Validators.required]),
   });
 

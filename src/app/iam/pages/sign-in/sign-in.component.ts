@@ -50,7 +50,7 @@ import {SignInRequest} from '../../model/requests/sign-in.request';
                   <input matInput type="" formControlName="username" />
                   @if (
                     (form.get('username')?.touched || form.get('username')?.dirty) &&
-                    form.get('username')?.hasError('required')
+                    (form.get('username')?.hasError('required'))
                     ) {
                     <mat-error>
                       <mat-icon class="form-field-error-icon">error</mat-icon>
@@ -70,17 +70,7 @@ import {SignInRequest} from '../../model/requests/sign-in.request';
                       Password is required</mat-error
                     >
                   }
-                  @if (
-                    (form.get('password')?.touched || form.get('password')?.dirty) &&
-                    form.get('password')?.hasError('minlength')
-                    ) {
-                    <mat-error>
-                      <mat-icon class="form-field-error-icon">error</mat-icon>
-                      Password must be at least 8 characters
-                    </mat-error>
-                  }
                 </mat-form-field>
-
               </div>
             </div>
           </mat-card-content>
@@ -104,10 +94,7 @@ export class SignInComponent {
   submitted = false;
   form = new FormGroup({
     username: new FormControl('', [Validators.required]),
-    password: new FormControl('', [
-      Validators.required,
-      Validators.minLength(5),
-    ]),
+    password: new FormControl('', [Validators.required]),
   });
 
   onSubmit() {

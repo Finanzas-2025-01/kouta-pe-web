@@ -9,7 +9,7 @@ export abstract class BaseService<T> {
   protected httpOptions = { headers: new HttpHeaders({ 'Content-Type': 'application/json'})};
 
   /** Base URL for the server API */
-  protected serverBaseUrl: string = `${environment.baseUrl}`;
+  protected serverBaseUrl: string = `http://localhost:8080/api/v1`;
 
   /** HTTP client for making API request */
   protected http: HttpClient = inject(HttpClient);
