@@ -4,9 +4,9 @@ import { Component } from '@angular/core';
   selector: 'app-bond-footer',
   imports: [],
   template: `
-    <p>
-      bond-footer works!
-    </p>
+    <footer class="p-2 text-[#E0E3E2] text-center bg-[#101414]">
+      kouta-pe
+    </footer>
   `,
   styles: ``
 })
