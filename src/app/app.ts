@@ -1,5 +1,5 @@
 import {Component, ViewChild} from '@angular/core';
-import {Router, RouterLink, RouterOutlet} from '@angular/router';
+import {NavigationEnd, Router, RouterLink, RouterOutlet} from '@angular/router';
 import {MatSidenav} from '@angular/material/sidenav';
 import {MatToolbar} from '@angular/material/toolbar';
 import {NgIf} from '@angular/common';
@@ -12,7 +12,7 @@ import {NgIf} from '@angular/common';
 })
 export class App {
   title = 'kouta-pe';
-  showToolbar = true;
+  showToolbar = false;
   redirect = '';
 
   @ViewChild(MatSidenav, {static: true}) sidenav!: MatSidenav;
@@ -28,10 +28,13 @@ export class App {
   ];
 
   constructor(private router: Router) {
-    this.router.events.subscribe(() => {
-      const currentRoute = this.router.url;
-
-      this.showToolbar = !(currentRoute.includes('login') || currentRoute.includes('register'));
+    this.router.events.subscribe((event) => {
+      if (event instanceof NavigationEnd) {
+        const currentRoute = this.router.url;
+        this.showToolbar = !(currentRoute.includes('sign-in') || currentRoute.includes('sign-up'));
+        console.log('Ruta actual:', currentRoute);
+        console.log('showToolbar:', this.showToolbar);
+      }
     });
     this.setRedirect();
   }
