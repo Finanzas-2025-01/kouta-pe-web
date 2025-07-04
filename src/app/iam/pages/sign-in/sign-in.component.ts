@@ -15,6 +15,7 @@ import {AuthService} from '../../services/auth.service';
 import {SignInRequest} from '../../model/requests/sign-in.request';
 import {Router} from '@angular/router';
 
+// @ts-ignore
 @Component({
   selector: 'app-sign-in',
   imports: [
