@@ -4,10 +4,10 @@ export class SignUpRequest {
   public surname: string;
   public email: string;
   public password: string;
-  public roles: Roles[];
+  public roles: string[];
 
   constructor(username: string, name: string, surname: string,
-              email: string, password: string, roles: Roles[]) {
+              email: string, password: string, roles: string[]) {
     this.username = username;
     this.name = name;
     this.surname = surname;
@@ -17,9 +17,3 @@ export class SignUpRequest {
   }
 }
 
-
-enum Roles {
-  ROLE_USER,
-  ROLE_LEADER,
-  ROLE_MEMBER
-}

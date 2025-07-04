@@ -112,7 +112,6 @@ export class SignInComponent {
 
   onSubmit() {
     if (this.form.invalid) return;
-    console.log(this.form.value);
 
     const username = this.form.value.username ?? '';
     const password = this.form.value.password ?? '';

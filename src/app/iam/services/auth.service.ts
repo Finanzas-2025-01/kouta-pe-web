@@ -19,6 +19,7 @@ export class AuthService {
   private signedIn: BehaviorSubject<boolean> = new BehaviorSubject<boolean>(false);
   private signedInUserId: BehaviorSubject<number> = new BehaviorSubject<number>(0);
   private signedInUsername: BehaviorSubject<string> = new BehaviorSubject<string>('');
+  private signedInUserType: BehaviorSubject<'ROLE_ISSUER' | 'ROLE_BONDHOLDER'> = new BehaviorSubject<'ROLE_ISSUER' | 'ROLE_BONDHOLDER' >('ROLE_BONDHOLDER');
 
   constructor(private router: Router, private http: HttpClient) { }
 
@@ -34,6 +35,10 @@ export class AuthService {
     return this.signedInUsername.asObservable();
   }
 
+  get currentUserType() {
+    return this.signedInUserType.asObservable();
+  }
+
   /**
    * Sign up a new user.
    * @param signUpRequest The sign up request.
@@ -43,7 +48,6 @@ export class AuthService {
     return this.http.post<SignUpResponse>(`${this.basePath}/authentication/sign-up`, signUpRequest, this.httpOptions)
       .subscribe({
         next: (response) => {
-          console.log(`Signed up as ${response.username} with id: ${response.id}`);
           this.router.navigate(['/sign-in']).then();
         },
         error: (error) => {
@@ -59,15 +63,17 @@ export class AuthService {
    * @returns The sign in response.
    */
   signIn(signInRequest: SignInRequest) {
-    console.log(signInRequest);
     return this.http.post<SignInResponse>(`${this.basePath}/authentication/sign-in`, signInRequest, this.httpOptions)
       .subscribe({
         next: (response) => {
           this.signedIn.next(true);
           this.signedInUserId.next(response.id);
           this.signedInUsername.next(response.username);
+          this.signedInUserType.next(response.role.includes('ROLE_ISSUER') ? 'ROLE_ISSUER' : 'ROLE_BONDHOLDER');
+
           localStorage.setItem('token', response.token);
-          console.log(`Signed in as ${response.username} with token ${response.token}`);
+          localStorage.setItem('role', response.role.join(','));
+
           this.router.navigate(['/']).then();
         },
         error: (error) => {
