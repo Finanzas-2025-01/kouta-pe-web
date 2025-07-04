@@ -8,7 +8,7 @@ import {MatToolbar} from '@angular/material/toolbar';
   ],
   template: `
     <mat-toolbar class="">
-      <span>My Application</span>
+      <span>Kouta.pe</span>
     </mat-toolbar>
   `,
   styles: ``

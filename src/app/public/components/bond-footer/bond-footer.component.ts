@@ -5,7 +5,7 @@ import { Component } from '@angular/core';
   imports: [],
   template: `
     <footer class="p-2 text-[#E0E3E2] text-center bg-[#101414]">
-      kouta-pe
+      kouta.pe
     </footer>
   `,
   styles: ``
