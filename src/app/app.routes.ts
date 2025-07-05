@@ -6,6 +6,8 @@ import {authGuard} from './iam/services/auth-guard';
 import {IssuersBonds} from './public/pages/issuers-bonds/issuers-bonds';
 import {Bonds} from './bond-holders/pages/bonds/bonds';
 import {BondCashflowComponent} from './bond-holders/pages/bond-cashflow/bond-cashflow.component';
+import { CreateBondComponent } from './issuer/pages/create-bond/create-bond.component';
+import { EditBondComponent } from './issuer/pages/edit-bond/edit-bond.component';
 
 
 export const routes: Routes = [
@@ -15,4 +17,6 @@ export const routes: Routes = [
   {path: 'issuers/my-bonds', component:IssuersBonds},
   {path: 'bonds', component:Bonds},
   {path: 'bonds/:id/cashflow' , component: BondCashflowComponent },
+  {path: 'bonds/create', component: CreateBondComponent},
+  {path: 'bonds/:id/edit', component: EditBondComponent},
 ];
