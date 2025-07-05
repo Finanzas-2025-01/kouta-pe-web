@@ -1,0 +1,30 @@
+.mat-spacer {
+  flex: 1 1 auto;
+}
+mat-toolbar {
+  background-color: black;
+  color: white;
+  font-weight: normal;
+}
+
+.spacer {
+  height: 2px;
+  background-color: #212121;
+}
+
+.page-option{
+  background-color: white;
+  margin-left: 10px;
+  margin-right: 10px;
+  border-radius: 5px;
+  padding: 6px 20px 6px 20px;
+}
+.button-text{
+  color: black;
+  font-size: 16px;
+}
+.logo{
+  margin-left: 20px;
+  margin-right: 20px;
+  height: 50px;
+}

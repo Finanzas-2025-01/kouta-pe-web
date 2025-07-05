@@ -1,6 +1,5 @@
 <mat-toolbar *ngIf="showToolbar" class="mat-toolbar">
-  <img class="logo" src='' alt='Kuota-pe-Logo'/>
-  <span><a [routerLink]="redirect" style="text-decoration: none; color: white">Kuota-Pe</a></span>
+  <img class="logo" src="assets/images/kuota-pe.png" alt="Kuota-pe-Logo"/>
   <span class="mat-spacer"></span>
   <ng-container *ngIf="isIssuer">
     @for (option of optionsIssuer; track option.title) {
@@ -13,6 +12,7 @@
     }
   </ng-container>
 </mat-toolbar>
+<div class="spacer"></div>
 <div class="grid min-h-dvh" style="grid-template-rows: auto 1fr auto;">
   <main>
     <router-outlet/>
