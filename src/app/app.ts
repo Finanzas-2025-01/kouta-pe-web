@@ -24,7 +24,7 @@ export class App {
 
   optionsBondholder = [
     {icon: '', path: '/bonds', title: 'Bonos'},
-    {icon: '', path: '/cond-holders/my-bonds', title: 'Mis Bonos'}
+    {icon: '', path: '/bond-holders/bonds', title: 'Mis Bonos'}
   ];
 
   constructor(private router: Router) {
