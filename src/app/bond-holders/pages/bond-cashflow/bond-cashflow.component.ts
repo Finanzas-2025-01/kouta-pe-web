@@ -72,7 +72,6 @@ const ELEMENT_DATA: PeriodicElement[] = [
 @Component({
   selector: 'app-bond-cashflow',
   imports: [
-    MatIcon,
     MatTableModule,
     DatePipe,
     PercentPipe,
