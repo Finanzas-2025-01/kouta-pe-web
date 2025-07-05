@@ -1,0 +1,20 @@
+<mat-card class="bond-card">
+  <mat-card-header>
+    <div>
+      <mat-card-title>
+        <p>Bono emitido por: {{bond.issuer.name}} {{bond.issuer.surname}}</p>
+      </mat-card-title>
+      <mat-card-subtitle>
+        <p>Nombre del bono: {{bond.name}}</p>
+      </mat-card-subtitle>
+    </div>
+  </mat-card-header>
+  <mat-card-content>
+    <p>Valor nominal: {{bond.nominalValue}}</p>
+    <p>Valor comercial: {{bond.comercialValue}}</p>
+    <p>Años de vigencia: {{bond.years}}</p>
+    <p>Tipo de tasa: {{bond.interestRateType}}</p>
+    <p>Tasa: {{bond.interestRatePercentage}}%</p>
+    <p>Frecuencia del cupón: {{bond.cuponFrequency}}</p>
+  </mat-card-content>
+</mat-card>
