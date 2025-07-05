@@ -1,86 +1,86 @@
 <form [formGroup]="bondForm" (ngSubmit)="onSubmit()">
-  <h2 style="text-align:center; margin-bottom: 18px;">Crear Bono</h2>
+  <h2>Crear Bono</h2>
 
   <div *ngIf="successMessage" class="message success-message">{{ successMessage }}</div>
   <div *ngIf="errorMessage" class="message error-message">{{ errorMessage }}</div>
 
   <div class="form-grid">
     <div>
-      <label>Nombre:</label>
-      <input formControlName="name" type="text" placeholder="Nombre del bono" />
+      <label>Nombre</label>
+      <input formControlName="name" placeholder="Nombre del bono" />
     </div>
     <div>
-      <label>Valor nominal:</label>
+      <label>Valor nominal</label>
       <input formControlName="nominalValue" type="number" min="0" />
     </div>
     <div>
-      <label>Valor comercial:</label>
+      <label>Valor comercial</label>
       <input formControlName="comercialValue" type="number" min="0" />
     </div>
     <div>
-      <label>Años:</label>
+      <label>Años</label>
       <input formControlName="years" type="number" min="0" />
     </div>
     <div>
-      <label>Frecuencia de cupón:</label>
+      <label>Frecuencia de cupón</label>
       <select formControlName="cuponFrequency">
         <option *ngFor="let freq of cuponFrequencies" [value]="freq">{{ cuponFrequenciesLabels[freq] }}</option>
       </select>
     </div>
     <div>
-      <label>Días por año:</label>
+      <label>Días por año</label>
       <input formControlName="daysPerYear" type="number" min="0" />
     </div>
     <div>
-      <label>Tipo de tasa de interés:</label>
+      <label>Tipo de tasa de interés</label>
       <select formControlName="interestRateType">
         <option *ngFor="let type of interestRateTypes" [value]="type">{{ interestRateTypesLabels[type] }}</option>
       </select>
     </div>
     <div>
-      <label>Capitalización:</label>
+      <label>Capitalización</label>
       <select formControlName="capitalization">
         <option *ngFor="let cap of capitalizations" [value]="cap">{{ capitalizationsLabels[cap] }}</option>
       </select>
     </div>
     <div>
-      <label>% Tasa de interés:</label>
+      <label>% Tasa de interés</label>
       <input formControlName="interestRatePercentage" type="number" min="0" step="0.01" />
     </div>
     <div>
-      <label>% Tasa de descuento anual:</label>
+      <label>% Tasa de descuento anual</label>
       <input formControlName="anualDiscountRatePercentage" type="number" min="0" step="0.01" />
     </div>
     <div>
-      <label>% Impuesto a la renta:</label>
+      <label>% Impuesto a la renta</label>
       <input formControlName="incomeTaxPercentage" type="number" min="0" step="0.01" />
     </div>
     <div>
-      <label>Fecha de emisión:</label>
+      <label>Fecha de emisión</label>
       <input formControlName="issueDate" type="date" />
     </div>
     <div>
-      <label>% Prima:</label>
+      <label>% Prima</label>
       <input formControlName="premiumPercentage" type="number" min="0" step="0.01" />
     </div>
     <div>
-      <label>% Estructuración:</label>
+      <label>% Estructuración</label>
       <input formControlName="structuringPercentage" type="number" min="0" step="0.01" />
     </div>
     <div>
-      <label>% Colocación:</label>
+      <label>% Colocación</label>
       <input formControlName="placementPercentage" type="number" min="0" step="0.01" />
     </div>
     <div>
-      <label>% Tasa flotante:</label>
+      <label>% Tasa flotante</label>
       <input formControlName="floatingRatePercentage" type="number" min="0" step="0.01" />
     </div>
     <div>
-      <label>% CAVALI:</label>
+      <label>% CAVALI</label>
       <input formControlName="CAVALIPercentage" type="number" min="0" step="0.01" />
     </div>
     <div>
-      <label>% Inflación anual:</label>
+      <label>% Inflación anual</label>
       <input formControlName="anualInflationPercentage" type="number" min="0" step="0.01" />
     </div>
   </div>
