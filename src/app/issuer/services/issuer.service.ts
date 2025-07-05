@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import {environment} from '../../../environments/environment';
 import {Router} from '@angular/router';
 import {HttpClient} from '@angular/common/http';
-import {Bond} from '../model/response/issued-bond.entity';
+import {Bond} from '../model/bond.entity';
 
 @Injectable({
   providedIn: 'root'
