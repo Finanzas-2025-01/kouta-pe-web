@@ -2,9 +2,16 @@
   flex: 1 1 auto;
 }
 mat-toolbar {
+  background-color: black;
   color: white;
   font-weight: normal;
 }
+
+.spacer {
+  height: 2px;
+  background-color: #212121;
+}
+
 .page-option{
   background-color: white;
   margin-left: 10px;
