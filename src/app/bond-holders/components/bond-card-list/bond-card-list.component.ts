@@ -16,20 +16,5 @@ import {BondsApiService} from '../../services/bonds-api.service';
 })
 export class BondCardListComponent {
   @Input() title: string = '';
-  private bonsApiService = inject(BondsApiService);
-  bonds: Array<Bond> = [];
-
-  private getData() {
-    this.bonsApiService.getAllBonds().subscribe((response: Array<Bond>) => {
-      this.bonds = response;
-      console.log('Tamaño del array de bonos'+this.bonds.length);
-
-    }, error => {
-      console.error('There was an error fetching bonds!', error);
-    });
-  }
-
-  ngOnInit(): void {
-    this.getData();
-  }
+  @Input() bonds: Array<Bond> = [];
 }
