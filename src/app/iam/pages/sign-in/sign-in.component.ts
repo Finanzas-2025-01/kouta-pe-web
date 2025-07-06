@@ -43,8 +43,7 @@ import {Router} from '@angular/router';
                     height="160"
                     width="160"
                     class="inline" />
-                  <h1 class="text-3xl">Sign in</h1>
-                  <p>to continue to Application</p>
+                  <h1 class="text-3xl">Log in</h1>
                 </div>
 
                 <div class="flex flex-col space-y-2 p-4 md:mt-12">

@@ -21,17 +21,22 @@ export class App {
     {icon: '', path: '/issuers/my-bonds', title: 'Mis Bonos'},
     {icon: '', path: '/issuers/my-hired-bonds', title: 'Mis Bonos Contratados'},
     {icon: '', path: '/bonds/create', title: 'Crear Bono'},
+    {icon: '', path: '/sign-in', title: 'Cerrar Sesión'}
   ];
 
   optionsBondholder = [
     {icon: '', path: '/bonds', title: 'Bonos'},
-    {icon: '', path: '/bond-holders/bonds', title: 'Mis Bonos'}
+    {icon: '', path: '/bond-holders/bonds', title: 'Mis Bonos'},
+    {icon: '', path: '/sign-in', title: 'Cerrar Sesión'}
   ];
 
   constructor(private router: Router) {
     this.router.events.subscribe((event) => {
       if (event instanceof NavigationEnd) {
         const currentRoute = this.router.url;
+        if (currentRoute.includes('sign-in') || currentRoute.includes('sign-up')) {
+          localStorage.clear();
+        }
         this.showToolbar = !(currentRoute.includes('sign-in') || currentRoute.includes('sign-up'));
         console.log('Ruta actual:', currentRoute);
         console.log('showToolbar:', this.showToolbar);
