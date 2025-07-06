@@ -5,7 +5,7 @@ export class CashFlow {
   assignedDate: Date;
   anualInflation: number;
   periodInflation: number;
-  gracePeriod: 'T' | 'S' | 'P';
+  gracePeriod: 'T' | 'S' | 'P' | 'N';
   bondValue: number;
   indexedBondValue: number;
   cupon: number;
