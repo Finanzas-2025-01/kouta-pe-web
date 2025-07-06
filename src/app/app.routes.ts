@@ -12,7 +12,7 @@ import {IssuedBondsComponent} from './issuer/pages/issued-bonds/issued-bonds.com
 import {
   FinancialInstruments
 } from './bond-holders/pages/financial-instruments/financial-instruments';
-import {HiredBonds} from './bond-holders/pages/hired-bonds/hired-bonds';
+import {HiredBonds} from './issuer/pages/hired-bonds/hired-bonds';
 
 
 export const routes: Routes = [
