@@ -158,7 +158,7 @@
         <div class="dialog-content-column-1">
           <a mat-button (click)="goToCashFlow()" class="cash-flow-button"><p class="button-text">Ver el flujo de caja del bono</p></a>
         </div>
-        <ng-container *ngIf="isBondHolder">
+        <ng-container *ngIf="isBondHolder && isBaseBond">
           <div class="dialog-content-column-2">
             <a mat-button (click)="hireBond()" class="hire-button"><p class="button-text">Contratar bono</p></a>
           </div>

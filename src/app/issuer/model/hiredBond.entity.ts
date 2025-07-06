@@ -18,6 +18,7 @@ export class HiredBond {
   floatingRatePercentage: number;
   CAVALIPercentage: number;
   anualInflationPercentage: number;
+  bondType: string;
   issuer: Issuer;
   bondHolder: BondHolder;
 
@@ -41,6 +42,7 @@ export class HiredBond {
     floatingRatePercentage: number,
     CAVALIPercentage: number,
     anualInflationPercentage: number,
+    bondType: string,
     issuer: Issuer,
     bondHolder: BondHolder
   ) {
@@ -63,6 +65,7 @@ export class HiredBond {
     this.floatingRatePercentage = floatingRatePercentage;
     this.CAVALIPercentage = CAVALIPercentage;
     this.anualInflationPercentage = anualInflationPercentage;
+    this.bondType = bondType;
     this.issuer = issuer;
     this.bondHolder = bondHolder;
   }

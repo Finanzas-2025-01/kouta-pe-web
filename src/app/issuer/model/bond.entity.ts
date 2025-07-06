@@ -19,6 +19,7 @@ export class Bond {
   floatingRatePercentage: number;
   CAVALIPercentage: number;
   anualInflationPercentage: number;
+  bondType: string;
   issuer: Issuer;
 
   constructor(
@@ -41,6 +42,7 @@ export class Bond {
     floatingRatePercentage: number,
     CAVALIPercentage: number,
     anualInflationPercentage: number,
+    bondType: string,
     issuer: Issuer
   ) {
     this.id = id;
@@ -62,6 +64,7 @@ export class Bond {
     this.floatingRatePercentage = floatingRatePercentage;
     this.CAVALIPercentage = CAVALIPercentage;
     this.anualInflationPercentage = anualInflationPercentage;
+    this.bondType = bondType;
     this.issuer = issuer;
   }
 
