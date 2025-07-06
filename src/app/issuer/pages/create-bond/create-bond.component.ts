@@ -120,12 +120,7 @@ export class CreateBondComponent {
               this.successMessage = '¡Bono creado exitosamente!';
               this.errorMessage = '';
               // Redirigir al cashflow del bono creado (usa el id retornado)
-              setTimeout(() => {
-                this.successMessage = '';
-                if (res && res.id) {
-                  this.router.navigate(['/issuer/bonds', res.id, 'cashflow']);
-                }
-              }, 1200);
+              this.router.navigate(['bonds', res.id, 'cashflow']);
             },
             error: (err) => {
               this.errorMessage = 'Ocurrió un error al crear el bono.';

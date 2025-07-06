@@ -70,7 +70,7 @@ export class EditBondComponent implements OnInit {
             this.successMessage = '¡Bono actualizado exitosamente!';
             this.errorMessage = '';
             // Redirige al cashflow del bono actualizado
-            this.router.navigate(['/issuer/bonds', this.bondId, 'cashflow']);
+            this.router.navigate(['/bonds', this.bondId, 'cashflow']);
           },
           error: () => {
             this.errorMessage = 'Ocurrió un error al actualizar el bono.';
