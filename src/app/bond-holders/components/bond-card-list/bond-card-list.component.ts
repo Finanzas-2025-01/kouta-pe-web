@@ -20,6 +20,7 @@ export class BondCardListComponent {
   private getData() {
     this.bonsApiService.getAllBonds().subscribe((response: Array<Bond>) => {
       this.bonds = response;
+      console.log(response);
     }, error => {
       console.error('There was an error fetching bonds!', error);
     });
