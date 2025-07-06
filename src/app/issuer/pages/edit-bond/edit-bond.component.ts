@@ -3,6 +3,7 @@ import { FormBuilder, FormGroup, Validators, ReactiveFormsModule } from '@angula
 import { ActivatedRoute } from '@angular/router';
 import { HttpClient } from '@angular/common/http';
 import { CommonModule } from '@angular/common';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-edit-bond',
@@ -21,7 +22,8 @@ export class EditBondComponent implements OnInit {
   constructor(
     private fb: FormBuilder,
     private route: ActivatedRoute,
-    private http: HttpClient
+    private http: HttpClient,
+    private router: Router
   ) {
     this.bondForm = this.fb.group({
       comercialValue: [0, Validators.required],
@@ -67,7 +69,8 @@ export class EditBondComponent implements OnInit {
           next: () => {
             this.successMessage = '¡Bono actualizado exitosamente!';
             this.errorMessage = '';
-            setTimeout(() => this.successMessage = '', 3500);
+            // Redirige al cashflow del bono actualizado
+            this.router.navigate(['/bonds', this.bondId, 'cashflow']);
           },
           error: () => {
             this.errorMessage = 'Ocurrió un error al actualizar el bono.';
