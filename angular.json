@@ -62,6 +62,12 @@
         },
         "serve": {
           "builder": "@angular/build:dev-server",
+          "options": {
+            "allowedHosts": [
+              ".ngrok-free.app",
+              ".tunnelmole.net"
+            ]
+          },
           "configurations": {
             "production": {
               "buildTarget": "webfinanzas:build:production"

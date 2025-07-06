@@ -65,7 +65,7 @@ export class EditBondComponent implements OnInit {
 
   onSubmit() {
     if (this.bondForm.valid && this.bondId) {
-      this.http.put(`http://localhost:8080/api/v1/bonds/${this.bondId}`, this.bondForm.value)
+      this.http.put(`${environment.baseUrl}/bonds/${this.bondId}`, this.bondForm.value)
         .subscribe({
           next: () => {
             this.successMessage = '¡Bono actualizado exitosamente!';
