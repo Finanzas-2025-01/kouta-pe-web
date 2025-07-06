@@ -44,3 +44,27 @@
   padding: 16px;
   background-color: #343434;
 }
+
+.bond-card-content-row {
+  display: flex;
+  flex-direction: row;
+  gap: 24px;
+}
+
+.bond-card-content-column-1,
+.bond-card-content-column-2 {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 8px;
+}
+
+.bond-card-content-column-1 {
+  flex: 0 1 auto;
+  text-align: left;
+}
+
+.bond-card-content-column-2 {
+  flex: 1 1 0;
+  text-align: right;
+}

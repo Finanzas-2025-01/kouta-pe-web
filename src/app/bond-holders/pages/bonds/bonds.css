@@ -1,9 +1,21 @@
 .bonds-page {
   display: flex;
   flex-direction: column;
-  align-items: center;
-  justify-content: center;
   height: 100%;
   width: 100%;
   box-sizing: border-box;
+}
+
+.bonds-page-title {
+  padding: 20px;
+  font-weight: bold;
+  font-size: 32px;
+}
+
+.bonds-page-content {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
 }
