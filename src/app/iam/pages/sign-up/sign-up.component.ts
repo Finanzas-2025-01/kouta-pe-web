@@ -1,4 +1,4 @@
-import { NgOptimizedImage } from '@angular/common';
+
 import { Component } from '@angular/core';
 import {
   MatCard,
@@ -27,7 +27,6 @@ import {Router} from '@angular/router';
     MatInputModule,
     ReactiveFormsModule,
     MatIconModule,
-    NgOptimizedImage,
     MatSelect,
     MatOption,
   ],
@@ -39,10 +38,10 @@ import {Router} from '@angular/router';
             <div class="grid md:grid-cols-2 gap-6">
               <div class="flex flex-col space-y-4 p-4">
                 <img
-                  ngSrc="https://ui.angular-material.dev/app-ui/logo.svg"
+                  src="../../../../assets/images/kuota-pe.png"
                   alt="Logo"
-                  height="48"
-                  width="48"
+                  height="160"
+                  width="160"
                   class="inline" />
                 <h1 class="text-3xl">Create an Account</h1>
                 <p>to get started with Application</p>

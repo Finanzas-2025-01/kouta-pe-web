@@ -46,15 +46,15 @@ interface Currency {
         @if (bondResult){
           <div class="bg-(--mat-sys-surface) grid grid-cols-2 gap-4 border-y border-(--mat-sys-outline) p-4">
             <p> Duración </p>
-            <p [ngClass]="{'text-red-500': bondResult.duration < 0, 'text-blue-500': bondResult.duration >= 0}"> {{ bondResult?.duration | number:'1.0-4' }} </p>
+            <p [ngClass]="{'text-red-500': bondResult.duration < 0, 'text-blue-500': bondResult.duration >= 0}"> {{ bondResult.duration | number:'1.0-4' }} </p>
             <p> Convexidad </p>
-            <p [ngClass]="{'text-red-500': bondResult.convexity < 0, 'text-blue-500': bondResult.convexity >= 0}"> {{ bondResult?.convexity | number:'1.0-4' }} </p>
+            <p [ngClass]="{'text-red-500': bondResult.convexity < 0, 'text-blue-500': bondResult.convexity >= 0}"> {{ bondResult.convexity | number:'1.0-4' }} </p>
             <p> Duración modificada </p>
-            <p [ngClass]="{'text-red-500': bondResult.modifiedDuration < 0, 'text-blue-500': bondResult.modifiedDuration >= 0}"> {{ bondResult?.modifiedDuration | number:'1.0-4' }} </p>
+            <p [ngClass]="{'text-red-500': bondResult.modifiedDuration < 0, 'text-blue-500': bondResult.modifiedDuration >= 0}"> {{ bondResult.modifiedDuration | number:'1.0-4' }} </p>
             <p> TCEA </p>
-            <p [ngClass]="{'text-red-500': bondResult.percentageTCEA < 0, 'text-blue-500': bondResult.percentageTCEA >= 0}"> {{ bondResult?.percentageTCEA | number:'1.0-4' }} % </p>
+            <p [ngClass]="{'text-red-500': bondResult.percentageTCEA < 0, 'text-blue-500': bondResult.percentageTCEA >= 0}"> {{ bondResult.percentageTCEA | number:'1.0-4' }} % </p>
             <p> TREA </p>
-            <p [ngClass]="{'text-red-500': bondResult.percentageTREA < 0, 'text-blue-500': bondResult.percentageTREA >= 0}"> {{ bondResult?.percentageTREA | number:'1.0-4' }} % </p>
+            <p [ngClass]="{'text-red-500': bondResult.percentageTREA < 0, 'text-blue-500': bondResult.percentageTREA >= 0}"> {{ bondResult.percentageTREA | number:'1.0-4' }} % </p>
 
           </div>
         }

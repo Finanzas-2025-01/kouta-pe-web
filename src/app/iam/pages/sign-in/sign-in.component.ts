@@ -38,10 +38,10 @@ import {Router} from '@angular/router';
               <div class="grid md:grid-cols-2 gap-6">
                 <div class="flex flex-col space-y-4 p-4">
                   <img
-                    ngSrc="https://ui.angular-material.dev/app-ui/logo.svg"
+                    src="../../../../assets/images/kuota-pe.png"
                     alt="Logo"
-                    height="48"
-                    width="48"
+                    height="160"
+                    width="160"
                     class="inline" />
                   <h1 class="text-3xl">Sign in</h1>
                   <p>to continue to Application</p>

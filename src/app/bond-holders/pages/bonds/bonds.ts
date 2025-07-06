@@ -1,5 +1,4 @@
 import {Component, inject} from '@angular/core';
-import {MatCard} from '@angular/material/card';
 import {BondCardListComponent} from '../../components/bond-card-list/bond-card-list.component';
 import {Bond} from '../../model/bond.entity';
 import {BondsApiService} from '../../services/bonds-api.service';
@@ -7,7 +6,6 @@ import {BondsApiService} from '../../services/bonds-api.service';
 @Component({
   selector: 'app-bonds',
   imports: [
-    MatCard,
     BondCardListComponent
   ],
   templateUrl: './bonds.html',
