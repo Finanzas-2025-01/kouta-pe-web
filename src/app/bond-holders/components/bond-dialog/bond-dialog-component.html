@@ -1,0 +1,171 @@
+<div class="dialog-container">
+  <div class="dialog-title">Información detallada del Bono: {{bond.name}}</div>
+  <div class="separator"></div>
+  <div class="dialog-content">
+    <div class="dialog-content-row">
+      <div class="dialog-content-column-1">
+        <p>Valor nominal:</p>
+      </div>
+      <div class="dialog-content-column-2">
+        <p>{{bond.nominalValue}}</p>
+      </div>
+    </div>
+    <div class="dialog-content-row">
+      <div class="dialog-content-column-1">
+        <p>Valor comercial:</p>
+      </div>
+      <div class="dialog-content-column-2">
+        <p>{{bond.comercialValue}}</p>
+      </div>
+    </div>
+    <div class="dialog-content-row">
+      <div class="dialog-content-column-1">
+        <p>Cantidad de años:</p>
+      </div>
+      <div class="dialog-content-column-2">
+        <p>{{bond.years}}</p>
+      </div>
+    </div>
+    <div class="dialog-content-row">
+      <div class="dialog-content-column-1">
+        <p>Frecuencia del cupon:</p>
+      </div>
+      <div class="dialog-content-column-2">
+        <span [ngSwitch]="bond.cuponFrequency">
+          <span *ngSwitchCase="'MONTHLY'">Mensual</span>
+          <span *ngSwitchCase="'BIMONTHLY'">Bimestral</span>
+          <span *ngSwitchCase="'TRIMESTRAL'">Trimestral</span>
+          <span *ngSwitchCase="'QUADRIMONTHLY'">Cuatrimestral</span>
+          <span *ngSwitchCase="'SEMIANNUAL'">Semestral</span>
+          <span *ngSwitchCase="'ANNUAL'">Anual</span>
+          <span *ngSwitchDefault>{{ bond.cuponFrequency }}</span>
+        </span>
+      </div>
+    </div>
+    <div class="dialog-content-row">
+      <div class="dialog-content-column-1">
+        <p>Cantidad de días por año asignada:</p>
+      </div>
+      <div class="dialog-content-column-2">
+        <p>{{bond.daysPerYear}}</p>
+      </div>
+    </div>
+    <div class="dialog-content-row">
+      <div class="dialog-content-column-1">
+        <p>Tipo de tasa de interes:</p>
+      </div>
+      <div class="dialog-content-column-2">
+        <span [ngSwitch]="bond.interestRateType">
+          <span *ngSwitchCase="'EFFECTIVE'">Efectiva</span>
+          <span *ngSwitchCase="'NOMINAL'">Nominal</span>
+          <span *ngSwitchDefault>{{ bond.interestRateType }}</span>
+        </span>
+      </div>
+    </div>
+    <div class="dialog-content-row">
+      <div class="dialog-content-column-1">
+        <p>Capitalización:</p>
+      </div>
+      <div class="dialog-content-column-2">
+        <span [ngSwitch]="bond.capitalization">
+          <span *ngSwitchCase="'NONE'">No hay</span>
+          <span *ngSwitchCase="'DAILY'">Diaria</span>
+          <span *ngSwitchCase="'BIWEEKLY'">Quincenal</span>
+          <span *ngSwitchCase="'MONTHLY'">Mensual</span>
+          <span *ngSwitchCase="'BIMONTHLY'">Bimestral</span>
+          <span *ngSwitchCase="'TRIMONTHLY'">Trimestral</span>
+          <span *ngSwitchCase="'QUADRIMONTHLY'">Cuatrimestral</span>
+          <span *ngSwitchCase="'SEMIANNUAL'">Semestral</span>
+          <span *ngSwitchCase="'ANNUAL'">Anual</span>
+          <span *ngSwitchDefault>{{ bond.capitalization }}</span>
+        </span>
+      </div>
+    </div>
+    <div class="dialog-content-row">
+      <div class="dialog-content-column-1">
+        <p>Tas de interes:</p>
+      </div>
+      <div class="dialog-content-column-2">
+        <p>{{bond.interestRatePercentage}}</p>
+      </div>
+    </div>
+    <div class="dialog-content-row">
+      <div class="dialog-content-column-1">
+        <p>Tasa anual de descuento:</p>
+      </div>
+      <div class="dialog-content-column-2">
+        <p>{{bond.anualDiscountRatePercentage}}</p>
+      </div>
+    </div>
+    <div class="dialog-content-row">
+      <div class="dialog-content-column-1">
+        <p>Impuesto a la renta:</p>
+      </div>
+      <div class="dialog-content-column-2">
+        <p>{{bond.incomeTaxPercentage}}</p>
+      </div>
+    </div>
+    <div class="dialog-content-row">
+      <div class="dialog-content-column-1">
+        <p>Porcentaje de prima:</p>
+      </div>
+      <div class="dialog-content-column-2">
+        <p>{{bond.premiumPercentage}}%</p>
+      </div>
+    </div>
+    <div class="dialog-content-row">
+      <div class="dialog-content-column-1">
+        <p>Porcentaje de estructuración:</p>
+      </div>
+      <div class="dialog-content-column-2">
+        <p>{{bond.structuringPercentage}}%</p>
+      </div>
+    </div>
+    <div class="dialog-content-row">
+      <div class="dialog-content-column-1">
+        <p>Porcentaje de colocación:</p>
+      </div>
+      <div class="dialog-content-column-2">
+        <p>{{bond.placementPercentage}}%</p>
+      </div>
+    </div>
+    <div class="dialog-content-row">
+      <div class="dialog-content-column-1">
+        <p>Porcentaje de flotación:</p>
+      </div>
+      <div class="dialog-content-column-2">
+        <p>{{bond.floatingRatePercentage}}%</p>
+      </div>
+    </div>
+    <div class="dialog-content-row">
+      <div class="dialog-content-column-1">
+        <p>Porcentaje de CAVALI:</p>
+      </div>
+      <div class="dialog-content-column-2">
+        <p>{{bond.CAVALIPercentage}}%</p>
+      </div>
+    </div>
+    <div class="dialog-content-row">
+      <div class="dialog-content-column-1">
+        <p>Porcentaje de Inflación anual:</p>
+      </div>
+      <div class="dialog-content-column-2">
+        <p>{{bond.anualInflationPercentage}}%</p>
+      </div>
+    </div>
+    <div class="button-container">
+      <div class="dialog-content-row">
+        <div class="dialog-content-column-1">
+          <a mat-button (click)="goToCashFlow()" class="cash-flow-button"><p class="button-text">Ver el flujo de caja del bono</p></a>
+        </div>
+        <ng-container *ngIf="isBondHolder && isBaseBond">
+          <div class="dialog-content-column-2">
+            <a mat-button (click)="hireBond()" class="hire-button"><p class="button-text">Contratar bono</p></a>
+          </div>
+        </ng-container>
+
+      </div>
+    </div>
+
+  </div>
+</div>

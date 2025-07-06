@@ -10,9 +10,7 @@
 html {
   color-scheme: dark;
   @include mat.theme((
-    primary: theme.$primary-palette,
-    accent: theme.$tertiary-palette,
-    warn: mat.$red-palette,
+    color: mat.$cyan-palette
   ));
 }
 

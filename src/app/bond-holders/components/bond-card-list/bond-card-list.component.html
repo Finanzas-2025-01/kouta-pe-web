@@ -1,0 +1,14 @@
+<div class="bond-list-container">
+  <div *ngIf="bonds.length === 0">
+    <p class="bond-list-title">{{ title }}</p>
+  </div>
+  <div class="bond-card-list" *ngIf="bonds.length > 0">
+    <div *ngFor="let bond of bonds; let i = index" class="bond-item">
+      <app-bond-card
+        [bond]="bond"
+        class="bond-card">
+      </app-bond-card>
+    </div>
+  </div>
+</div>
+
