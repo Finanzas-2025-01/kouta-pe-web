@@ -95,8 +95,8 @@ import {Router} from '@angular/router';
                 <mat-form-field class="w-full sm:col-span-2">
                   <mat-label>Role</mat-label>
                   <mat-select formControlName="role">
-                    <mat-option value="ROLE_ISSUER">Issuer</mat-option>
-                    <mat-option value="ROLE_BONDHOLDER">Bond Holder</mat-option>
+                    <mat-option value="ROLE_ISSUER">Emisor de bonos</mat-option>
+                    <mat-option value="ROLE_BONDHOLDER">Bonista</mat-option>
                   </mat-select>
                   @if (form.get('role')?.touched && form.get('role')?.hasError('required')) {
                     <mat-error>Role is required</mat-error>
