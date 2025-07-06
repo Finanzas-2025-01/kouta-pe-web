@@ -7,6 +7,7 @@ import {Router} from '@angular/router';
 import {BondResult} from '../model/bond-result.entity';
 import {HiredBonds} from '../../issuer/pages/hired-bonds/hired-bonds';
 import {HiredBond} from '../../issuer/model/hiredBond.entity';
+import {environment} from '../../../environments/environment';
 
 @Injectable({
   providedIn: 'root'
@@ -39,17 +40,17 @@ export class BondsApiService extends BaseApiService<Bond> {
   }
 
   getAllBondsOfBondHolder(): Observable<Bond[]> {
-    return this.http.get<Bond[]>(`http://localhost:8080/api/v1/bond-holders/bonds`, this.httpOptions)
+    return this.http.get<Bond[]>(`${environment.baseUrl}/bond-holders/bonds`, this.httpOptions)
       .pipe(retry(2), catchError(this.handleError));
   }
 
   getAllBondsOfIssuer(): Observable<Bond[]> {
-    return this.http.get<Bond[]>(`http://localhost:8080/api/v1/issuers/bonds`, this.httpOptions)
+    return this.http.get<Bond[]>(`${environment.baseUrl}/issuers/bonds`, this.httpOptions)
       .pipe(retry(2), catchError(this.handleError));
   }
 
   getAllHiredBondsOfIssuer(): Observable<HiredBond[]> {
-    return this.http.get<HiredBond[]>(`http://localhost:8080/api/v1/issuers/bonds/hired`, this.httpOptions)
+    return this.http.get<HiredBond[]>(`${environment.baseUrl}/issuers/bonds/hired`, this.httpOptions)
       .pipe(retry(2), catchError(this.handleError));
   }
 

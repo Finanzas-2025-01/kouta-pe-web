@@ -10,6 +10,7 @@ import { MatButtonModule } from '@angular/material/button';
 import { MatDatepickerModule } from '@angular/material/datepicker';
 import { MatNativeDateModule } from '@angular/material/core';
 import { Router } from '@angular/router';
+import {environment} from '../../../../environments/environment';
 
 @Component({
   selector: 'app-create-bond',
@@ -114,7 +115,7 @@ export class CreateBondComponent {
         ...this.bondForm.value,
         issueDate: new Date(this.bondForm.value.issueDate).toISOString()
       };
-      this.http.post<any>('http://localhost:8080/api/v1/bonds', bondData)
+      this.http.post<any>(`${environment.baseUrl}/bonds`, bondData)
           .subscribe({
             next: (res) => {
               this.successMessage = '¡Bono creado exitosamente!';
