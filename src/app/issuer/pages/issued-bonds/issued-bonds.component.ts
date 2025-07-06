@@ -3,13 +3,12 @@ import {BondsApiService} from '../../../bond-holders/services/bonds-api.service'
 import {Bond} from '../../../bond-holders/model/bond.entity';
 import {BondCardComponent} from '../../../bond-holders/components/bond-card/bond-card.component';
 import {NgForOf, NgIf} from '@angular/common';
+import {BondCardListComponent} from '../../../bond-holders/components/bond-card-list/bond-card-list.component';
 
 @Component({
   selector: 'app-issued-bonds',
   imports: [
-    BondCardComponent,
-    NgForOf,
-    NgIf
+    BondCardListComponent
   ],
   templateUrl: './issued-bonds.component.html',
   styleUrl: './issued-bonds.component.css'

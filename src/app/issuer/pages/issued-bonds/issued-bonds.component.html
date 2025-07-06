@@ -1,14 +1,8 @@
-<div class="bond-card-list" *ngIf="bonds.length > 0; else noBonds">
-  <div *ngFor="let bond of bonds; let i = index" class="bond-item">
-    <app-bond-card
-      [bond]="bond"
-      class="bond-card">
-    </app-bond-card>
+<div class="bonds-page">
+  <div class="bonds-page-title">
+    <p>Tus bonos creados</p>
+  </div>
+  <div class="bonds-page-content">
+    <app-bond-card-list [title]="'No haz creado ningún bono'" [bonds]="bonds"></app-bond-card-list>
   </div>
 </div>
-
-<ng-template #noBonds>
-  <div class="no-bonds-message">
-    No has creado ni un bono.
-  </div>
-</ng-template>

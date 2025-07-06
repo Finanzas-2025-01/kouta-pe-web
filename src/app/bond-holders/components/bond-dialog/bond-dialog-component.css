@@ -1,0 +1,62 @@
+.dialog-container{
+  padding: 30px;
+}
+.dialog-title {
+  font-size: 24px;
+  font-weight: bold;
+  margin-bottom: 20px;
+}
+.separator{
+  height: 1px;
+  width: 100%;
+  background-color: white;
+  margin: 20px 0;
+}
+
+.dialog-content-row {
+  display: flex;
+  flex-direction: row;
+  gap: 24px;
+}
+
+.dialog-content-column-1,
+.dialog-content-column-2 {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 8px;
+}
+
+.dialog-content-column-1 {
+  flex: 0 1 auto;
+  text-align: left;
+}
+
+.dialog-content-column-2 {
+  flex: 1 1 0;
+  text-align: right;
+}
+.button-container{
+  padding: 20px;
+}
+
+.cash-flow-button{
+  background-color: #817004 !important;
+  margin-left: 10px;
+  margin-right: 10px;
+  border-radius: 5px;
+  padding: 6px 20px 6px 20px;
+}
+
+.hire-button{
+  background-color: green;
+  margin-left: 10px;
+  margin-right: 10px;
+  border-radius: 5px;
+  padding: 6px 20px 6px 20px;
+}
+
+.button-text{
+  color: white;
+  font-size: 16px;
+}

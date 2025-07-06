@@ -1,4 +1,4 @@
-<mat-card class="bond-card" (click)="openDialog()">
+<mat-card class="bond-card">
   <div class="bond-card-header">
     <div style="padding: 10px">
       <p style="text-align: center; font-weight: bold">{{bond.name}}</p>
@@ -10,7 +10,7 @@
       </div>
       <div class="bond-card-issuer-column-2">
         <div style="align-content: center">
-          <p>{{bond.issuer.name}} {{bond.issuer.surname}}</p>
+          <p>{{bond.bondHolder.name}} {{bond.bondHolder.surname}}</p>
         </div>
       </div>
     </div>
