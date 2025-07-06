@@ -12,6 +12,7 @@ import {IssuedBondsComponent} from './issuer/pages/issued-bonds/issued-bonds.com
 import {
   FinancialInstrumentsComponent
 } from './bond-holders/pages/financial-instruments/financial-instruments.component';
+import {HiredBonds} from './bond-holders/pages/hired-bonds/hired-bonds';
 
 
 export const routes: Routes = [
@@ -24,4 +25,5 @@ export const routes: Routes = [
   {path: 'bonds/create', component: CreateBondComponent},
   {path: 'bonds/:id/edit', component: EditBondComponent},
   {path: 'bond-holders/bonds', component:FinancialInstrumentsComponent},
+  {path: 'issuers/my-hired-bonds', component:HiredBonds},
 ];

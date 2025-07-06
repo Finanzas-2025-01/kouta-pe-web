@@ -19,6 +19,7 @@ export class App {
 
   optionsIssuer = [
     {icon: '', path: '/issuers/my-bonds', title: 'Mis Bonos'},
+    {icon: '', path: '/issuers/my-hired-bonds', title: 'Mis Bonos Contratados'},
     {icon: '', path: '/bonds/create', title: 'Crear Bono'},
   ];
 

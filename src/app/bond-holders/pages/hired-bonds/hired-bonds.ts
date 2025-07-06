@@ -5,21 +5,21 @@ import {BondCardComponent} from '../../components/bond-card/bond-card.component'
 import {NgForOf, NgIf} from '@angular/common';
 
 @Component({
-  selector: 'app-financial-instruments',
+  selector: 'app-hired-bonds',
   imports: [
     BondCardComponent,
     NgForOf,
     NgIf
   ],
-  templateUrl: './financial-instruments.component.html',
-  styleUrl: './financial-instruments.component.css'
+  templateUrl: './hired-bonds.html',
+  styleUrl: './hired-bonds.css'
 })
-export class FinancialInstrumentsComponent {
+export class HiredBonds {
   private bonsApiService = inject(BondsApiService);
   bonds: Array<Bond> = [];
 
   private getData() {
-    this.bonsApiService.getAllBondsOfBondHolder().subscribe((response: Array<Bond>) => {
+    this.bonsApiService.getAllHiredBondsOfIssuer().subscribe((response: Array<Bond>) => {
       this.bonds = response;
     }, error => {
       console.error('There was an error fetching bonds!', error);

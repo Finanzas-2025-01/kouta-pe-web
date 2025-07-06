@@ -2,13 +2,14 @@ import {Component, inject} from '@angular/core';
 import {BondsApiService} from '../../../bond-holders/services/bonds-api.service';
 import {Bond} from '../../../bond-holders/model/bond.entity';
 import {BondCardComponent} from '../../../bond-holders/components/bond-card/bond-card.component';
-import {NgForOf} from '@angular/common';
+import {NgForOf, NgIf} from '@angular/common';
 
 @Component({
   selector: 'app-issued-bonds',
   imports: [
     BondCardComponent,
-    NgForOf
+    NgForOf,
+    NgIf
   ],
   templateUrl: './issued-bonds.component.html',
   styleUrl: './issued-bonds.component.css'
