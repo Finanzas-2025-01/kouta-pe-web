@@ -1,15 +1,21 @@
-.bond-card-list {
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  gap: 20px;
-  justify-items: center;
-  align-items: stretch;
-  background-color: black;
+.bonds-page {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  width: 100%;
+  box-sizing: border-box;
 }
 
-.no-bonds-message {
-  color: white;
-  text-align: center;
-  font-size: 1.5rem;
-  margin-top: 50px;
+.bonds-page-title {
+  padding: 20px;
+  font-weight: bold;
+  font-size: 32px;
+}
+
+.bonds-page-content {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
 }
