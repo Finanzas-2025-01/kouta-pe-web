@@ -1,4 +1,4 @@
-<div class="bond-card-list" *ngIf="bonds.length > 0; else noBonds">
+<div class="bond-card-list" >
   <div *ngFor="let bond of bonds; let i = index" class="bond-item">
     <app-bond-card
       [bond]="bond"
@@ -7,8 +7,3 @@
   </div>
 </div>
 
-<ng-template #noBonds>
-  <div class="no-bonds-message">
-    No tienes bonos contratados.
-  </div>
-</ng-template>
