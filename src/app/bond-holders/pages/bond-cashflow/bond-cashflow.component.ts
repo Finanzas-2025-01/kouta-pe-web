@@ -73,7 +73,7 @@ interface Currency {
               </mat-select>
             </mat-form-field>
 
-            @if (isIssuer) {
+            @if (isIssuer && !isHired) {
               <button matButton (click)="goToEditBond(bondId)">Editar Bono</button>
             }
           </div>
@@ -118,7 +118,7 @@ interface Currency {
                 [ngClass]="{'text-red-500': item.FAxPeriod < 0, 'text-blue-500': item.FAxPeriod >= 0}">{{ item.FAxPeriod | currency:currentCurrency }}</p>
               <p>{{ item.pFactor | number:'1.0-2' }}</p>
             </div>
-            @if (this.isIssuer && this.accordionStates[item.periodNumber] && item.periodNumber !== 0) {
+            @if (this.isIssuer && !this.isHired && this.accordionStates[item.periodNumber] && item.periodNumber !== 0) {
               <div class="bg-white/10 text-white rounded-b-lg p-4 relative flex items-center justify-between">
                 <div class="absolute top-2 right-6">
                   <mat-icon fontIcon="keyboard_arrow_up" class="text-5xl"/>
@@ -198,12 +198,15 @@ export class BondCashflowComponent {
 
   newGracePeriod: string = 'S';
 
+  isHired: boolean = false;
+
   constructor(private router : Router, private bondsApiService : BondsApiService) {
     this.bondId = Number(this.router.url.split('/')[2]);
     this.loadCashFlow();
     this.bondsApiService.getBondById(this.bondId).subscribe({
       next: (data) => {
         this.bond = data;
+        this.isHired = this.bond.bondType === 'HIRED';
       }
     });
 
@@ -219,6 +222,7 @@ export class BondCashflowComponent {
         this.accordionStates = new Array(this.cashFlowData.length).fill(false);
         this.isIssuer = localStorage.getItem('role') === 'ROLE_ISSUER';
         this.onCurrencyChange(this.currentCurrency);
+
       },
       error: (error) => {
         console.error('Error fetching cashflow data:', error);
@@ -228,7 +232,6 @@ export class BondCashflowComponent {
     this.bondsApiService.getBondResultById(this.bondId).subscribe({
       next: (data) => {
         this.bondResult = data;
-        console.log('bond result',this.bondResult);
       },
       error: (error) => {
         console.error('Error fetching bond result:', error);
