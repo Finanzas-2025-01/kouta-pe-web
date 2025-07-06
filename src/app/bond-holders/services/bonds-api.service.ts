@@ -39,17 +39,17 @@ export class BondsApiService extends BaseApiService<Bond> {
   }
 
   getAllBondsOfBondHolder(): Observable<Bond[]> {
-    return this.http.get<Bond[]>(`http://localhost:8080/api/v1/bond-holders/bonds`, this.httpOptions)
+    return this.http.get<Bond[]>(`https://bond-cash-backend.onrender.com/api/v1/bond-holders/bonds`, this.httpOptions)
       .pipe(retry(2), catchError(this.handleError));
   }
 
   getAllBondsOfIssuer(): Observable<Bond[]> {
-    return this.http.get<Bond[]>(`http://localhost:8080/api/v1/issuers/bonds`, this.httpOptions)
+    return this.http.get<Bond[]>(`https://bond-cash-backend.onrender.com/api/v1/issuers/bonds`, this.httpOptions)
       .pipe(retry(2), catchError(this.handleError));
   }
 
   getAllHiredBondsOfIssuer(): Observable<HiredBond[]> {
-    return this.http.get<HiredBond[]>(`http://localhost:8080/api/v1/issuers/bonds/hired`, this.httpOptions)
+    return this.http.get<HiredBond[]>(`https://bond-cash-backend.onrender.com/api/v1/issuers/bonds/hired`, this.httpOptions)
       .pipe(retry(2), catchError(this.handleError));
   }
 

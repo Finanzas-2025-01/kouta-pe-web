@@ -40,7 +40,7 @@ export class EditBondComponent implements OnInit {
   ngOnInit() {
     this.bondId = this.route.snapshot.paramMap.get('id');
     if (this.bondId) {
-      this.http.get<any>(`http://localhost:8080/api/v1/bonds/${this.bondId}`)
+      this.http.get<any>(`https://bond-cash-backend.onrender.com/api/v1/bonds/${this.bondId}`)
         .subscribe({
           next: (bond) => {
             this.bondName = bond.name;
@@ -64,7 +64,7 @@ export class EditBondComponent implements OnInit {
 
   onSubmit() {
     if (this.bondForm.valid && this.bondId) {
-      this.http.put(`http://localhost:8080/api/v1/bonds/${this.bondId}`, this.bondForm.value)
+      this.http.put(`https://bond-cash-backend.onrender.com/api/v1/bonds/${this.bondId}`, this.bondForm.value)
         .subscribe({
           next: () => {
             this.successMessage = '¡Bono actualizado exitosamente!';
