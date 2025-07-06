@@ -10,8 +10,8 @@ import { CreateBondComponent } from './issuer/pages/create-bond/create-bond.comp
 import { EditBondComponent } from './issuer/pages/edit-bond/edit-bond.component';
 import {IssuedBondsComponent} from './issuer/pages/issued-bonds/issued-bonds.component';
 import {
-  FinancialInstrumentsComponent
-} from './bond-holders/pages/financial-instruments/financial-instruments.component';
+  FinancialInstruments
+} from './bond-holders/pages/financial-instruments/financial-instruments';
 import {HiredBonds} from './bond-holders/pages/hired-bonds/hired-bonds';
 
 
@@ -24,6 +24,6 @@ export const routes: Routes = [
   {path: 'bonds/:id/cashflow' , component: BondCashflowComponent },
   {path: 'bonds/create', component: CreateBondComponent},
   {path: 'bonds/:id/edit', component: EditBondComponent},
-  {path: 'bond-holders/bonds', component:FinancialInstrumentsComponent},
+  {path: 'bond-holders/bonds', component:FinancialInstruments},
   {path: 'issuers/my-hired-bonds', component:HiredBonds},
 ];

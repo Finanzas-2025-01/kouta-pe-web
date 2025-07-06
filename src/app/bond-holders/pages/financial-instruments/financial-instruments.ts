@@ -3,18 +3,20 @@ import {BondsApiService} from '../../services/bonds-api.service';
 import {Bond} from '../../model/bond.entity';
 import {BondCardComponent} from '../../components/bond-card/bond-card.component';
 import {NgForOf, NgIf} from '@angular/common';
+import {BondCardListComponent} from '../../components/bond-card-list/bond-card-list.component';
 
 @Component({
   selector: 'app-financial-instruments',
   imports: [
     BondCardComponent,
     NgForOf,
-    NgIf
+    NgIf,
+    BondCardListComponent
   ],
-  templateUrl: './financial-instruments.component.html',
-  styleUrl: './financial-instruments.component.css'
+  templateUrl: './financial-instruments.html',
+  styleUrl: './financial-instruments.css'
 })
-export class FinancialInstrumentsComponent {
+export class FinancialInstruments {
   private bonsApiService = inject(BondsApiService);
   bonds: Array<Bond> = [];
 
