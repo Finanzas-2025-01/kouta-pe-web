@@ -1,0 +1,184 @@
+form {
+  max-width: 900px;
+  margin: 40px auto;
+  padding: 24px 32px;
+  background: #23272b !important;
+  border-radius: 10px;
+  box-shadow: 0 2px 16px rgba(133, 31, 230, 0.07);
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  color: #fff !important;
+}
+
+.form-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 18px 24px;
+  background: #23272b !important;
+  color: #fff !important;
+}
+
+.form-grid > div {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  background: #23272b !important;
+  color: #fff !important;
+  width: 100%;
+}
+
+label, .mat-form-field-label {
+  font-size: 0.98rem;
+  color: #fff !important;
+  margin-bottom: 2px;
+  font-weight: 600;
+}
+
+/* Inputs y selects fondo #3f4948 */
+.mat-form-field-appearance-fill .mat-form-field-flex,
+.mat-form-field-appearance-fill .mat-form-field-infix,
+.mat-mdc-form-field-focus-overlay,
+.mat-mdc-input-element,
+input[matInput],
+.mat-input-element,
+.mat-select-trigger,
+.mat-select,
+.mat-select-panel,
+.mat-select-value,
+.mat-select-arrow,
+.mat-mdc-select,
+.mdc-text-field--filled,
+.mdc-text-field__input,
+.mdc-menu-surface {
+  background-color: #3f4948 !important;
+  color: #fff !important;
+  border-radius: 4px !important;
+  box-sizing: border-box;
+  opacity: 1 !important;
+}
+
+/* Ajusta el borde de los inputs y selects para que sean iguales */
+.mat-mdc-input-element,
+input[matInput],
+.mat-input-element,
+.mat-mdc-select-trigger,
+.mat-mdc-select,
+.mat-select-trigger,
+.mat-select {
+  border: 1px solid #424950 !important;
+  font-size: 1rem;
+  padding: 7px 10px;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+/* Ajusta el color de las opciones del select */
+.mat-option {
+  color: #fff !important;
+  background: #3f4948 !important;
+}
+
+.mat-option.mat-selected:not(.mat-option-disabled) {
+  background: #3f4948 !important;
+  color: #fff !important;
+}
+
+/* Ajusta el color del label y el borde al enfocar */
+.mat-form-field-label,
+.mat-mdc-floating-label {
+  color: #fff !important;
+  font-weight: 600;
+}
+
+.mat-form-field.mat-focused .mat-form-field-label,
+.mat-mdc-form-field.mat-focused .mat-mdc-floating-label {
+  color: #90caf9 !important;
+}
+
+.mat-form-field-appearance-fill .mat-form-field-outline,
+.mat-form-field-appearance-fill .mat-form-field-outline-thick,
+.mat-mdc-form-field .mdc-notched-outline__notch,
+.mat-mdc-form-field .mdc-notched-outline {
+  color: #90caf9 !important;
+  border-color: #90caf9 !important;
+}
+
+.mat-select-panel {
+  background: #3f4948 !important;
+  color: #fff !important;
+}
+
+/* Estilo para el botón HTML estándar */
+button[type="submit"] {
+  margin-top: 10px;
+  padding: 18px 0;
+  background: #111;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  font-weight: 600;
+  font-size: 1.1rem;
+  cursor: pointer;
+  transition: background 0.2s;
+  width: 200px;
+  align-self: center;
+}
+
+button[type="submit"]:hover:not(:disabled) {
+  background: #222;
+  color: #fff;
+}
+
+button[type="submit"]:disabled {
+  background: #b0b8c1;
+  color: #fff;
+  cursor: not-allowed;
+}
+
+.message {
+  text-align: center;
+  margin-bottom: 10px;
+  padding: 10px 0;
+  border-radius: 6px;
+  font-size: 1.05rem;
+  font-weight: 500;
+  letter-spacing: 0.5px;
+}
+
+.success-message {
+  background: #e6f9ec;
+  color: #218838;
+  border: 1px solid #b7e4c7;
+}
+
+.error-message {
+  background: #fdeaea;
+  color: #c82333;
+  border: 1px solid #f5c6cb;
+}
+
+/* Título blanco, grande y destacado para "Crear Bono" */
+h2 {
+  color: #fff;
+  font-size: 2.4rem;
+  font-weight: 800;
+  letter-spacing: 1px;
+  margin-bottom: 18px;
+  text-align: center;
+}
+
+/* Fondo interno del input MDC y estándar */
+.mdc-text-field__input,
+input[matInput],
+.mat-mdc-input-element,
+.mat-input-element {
+  background-color: #3f4948 !important;
+  color: #fff !important;
+  border-radius: 4px !important;
+  box-sizing: border-box;
+  border: 1px solid #424950;
+  font-size: 1rem;
+  padding: 7px 10px;
+  width: 100%;
+}

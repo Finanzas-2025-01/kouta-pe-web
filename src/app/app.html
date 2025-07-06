@@ -1,20 +1,27 @@
-<mat-toolbar *ngIf="showToolbar" class="mat-toolbar">
-  <img class="logo" src="assets/images/kuota-pe.png" alt="Kuota-pe-Logo"/>
-  <span class="mat-spacer"></span>
-  <ng-container *ngIf="isIssuer">
-    @for (option of optionsIssuer; track option.title) {
-      <a mat-button [routerLink]="option.path" class="page-option"><p class="button-text">{{ option.title }}</p></a>
-    }
-  </ng-container>
-  <ng-container *ngIf="isBondHolder">
-    @for (option of optionsBondholder; track option.title) {
-      <a mat-button [routerLink]="option.path" class="page-option"><p class="button-text">{{ option.title }}</p></a>
-    }
-  </ng-container>
-</mat-toolbar>
-<div class="spacer"></div>
+
 <div class="grid min-h-dvh" style="grid-template-rows: auto 1fr auto;">
+  <header>
+    <mat-toolbar *ngIf="showToolbar" class="mat-toolbar">
+      <img class="logo" src="assets/images/kuota-pe.png" alt="Kuota-pe-Logo"/>
+      <span class="mat-spacer"></span>
+      <ng-container *ngIf="isIssuer">
+        @for (option of optionsIssuer; track option.title) {
+          <a mat-button [routerLink]="option.path" class="page-option"><p class="button-text">{{ option.title }}</p></a>
+        }
+      </ng-container>
+      <ng-container *ngIf="isBondHolder">
+        @for (option of optionsBondholder; track option.title) {
+          <a mat-button [routerLink]="option.path" class="page-option"><p class="button-text">{{ option.title }}</p></a>
+        }
+      </ng-container>
+    </mat-toolbar>
+    <div class="spacer"></div>
+  </header>
   <main>
     <router-outlet/>
   </main>
+  <footer class="text-center">
+    kuota-pe © 2023
+  </footer>
 </div>
+

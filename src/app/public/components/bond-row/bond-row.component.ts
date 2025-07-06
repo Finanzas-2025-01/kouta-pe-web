@@ -1,15 +1,15 @@
 import { Component } from '@angular/core';
 
 @Component({
-  selector: 'app-bond-list',
+  selector: 'app-bond-row',
   imports: [],
   template: `
     <p>
-      bond-list works!
+      bond-row works!
     </p>
   `,
   styles: ``
 })
-export class BondListComponent {
+export class BondRowComponent {
 
 }

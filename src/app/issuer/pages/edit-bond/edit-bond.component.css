@@ -1,0 +1,122 @@
+form {
+  max-width: 900px;
+  margin: 40px auto;
+  padding: 24px 32px;
+  background: #23272b !important;
+  border-radius: 10px;
+  box-shadow: 0 2px 16px rgba(133, 31, 230, 0.07);
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  color: #fff !important;
+}
+
+.form-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 18px 24px;
+  background: #23272b !important;
+  color: #fff !important;
+}
+
+.form-grid > div {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  background: #23272b !important;
+  color: #fff !important;
+  width: 100%;
+}
+
+label {
+  font-size: 0.98rem;
+  color: #fff !important;
+  margin-bottom: 2px;
+  font-weight: 600;
+}
+
+/* Inputs fondo #3f4948 */
+input {
+  background: #3f4948 !important;
+  color: #fff !important;
+  border-radius: 4px !important;
+  border: 1px solid #424950 !important;
+  font-size: 1rem;
+  padding: 7px 10px;
+  width: 100%;
+  box-sizing: border-box;
+  transition: border 0.2s;
+}
+
+input:focus {
+  outline: none;
+  border-color: #90caf9 !important;
+}
+
+button[type="submit"] {
+  margin-top: 10px;
+  padding: 18px 0;
+  background: #111;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  font-weight: 600;
+  font-size: 1.1rem;
+  cursor: pointer;
+  transition: background 0.2s;
+  width: 200px;
+  align-self: center;
+}
+
+button[type="submit"]:hover:not(:disabled) {
+  background: #222;
+  color: #fff;
+}
+
+button[type="submit"]:disabled {
+  background: #b0b8c1;
+  color: #fff;
+  cursor: not-allowed;
+}
+
+.message {
+  text-align: center;
+  margin-bottom: 10px;
+  padding: 10px 0;
+  border-radius: 6px;
+  font-size: 1.05rem;
+  font-weight: 500;
+  letter-spacing: 0.5px;
+}
+
+.success-message {
+  background: #e6f9ec;
+  color: #218838;
+  border: 1px solid #b7e4c7;
+}
+
+.error-message {
+  background: #fdeaea;
+  color: #c82333;
+  border: 1px solid #f5c6cb;
+}
+
+h2, h3 {
+  color: #fff;
+  text-align: center;
+  margin-bottom: 8px;
+  font-weight: 700;
+  letter-spacing: 0.5px;
+}
+
+h2 {
+  font-size: 2rem;
+  margin-top: 0;
+  margin-bottom: 8px;
+}
+
+h3 {
+  font-size: 1.3rem;
+  margin-bottom: 18px;
+  font-weight: 500;
+}

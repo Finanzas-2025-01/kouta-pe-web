@@ -19,7 +19,7 @@ export class AuthService {
   private signedIn: BehaviorSubject<boolean> = new BehaviorSubject<boolean>(false);
   private signedInUserId: BehaviorSubject<number> = new BehaviorSubject<number>(0);
   private signedInUsername: BehaviorSubject<string> = new BehaviorSubject<string>('');
-  private signedInUserType: BehaviorSubject<'ROLE_ISSUER' | 'ROLE_BONDHOLDER'> = new BehaviorSubject<'ROLE_ISSUER' | 'ROLE_BONDHOLDER' >('ROLE_BONDHOLDER');
+  private signedInUserType: BehaviorSubject<string> = new BehaviorSubject<string>('');
 
   constructor(private router: Router, private http: HttpClient) { }
 
@@ -69,7 +69,8 @@ export class AuthService {
           this.signedIn.next(true);
           this.signedInUserId.next(response.id);
           this.signedInUsername.next(response.username);
-          this.signedInUserType.next(response.role.includes('ROLE_ISSUER') ? 'ROLE_ISSUER' : 'ROLE_BONDHOLDER');
+
+          this.signedInUserType.next(response.role.join(','));
 
           localStorage.setItem('token', response.token);
           localStorage.setItem('role', response.role.join(','));
@@ -99,6 +100,7 @@ export class AuthService {
     this.signedIn.next(false);
     this.signedInUserId.next(0);
     this.signedInUsername.next('');
+    this.signedInUserType.next('');
     localStorage.removeItem('token');
     this.router.navigate(['/sign-in']).then();
   }
