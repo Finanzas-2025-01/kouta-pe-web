@@ -4,6 +4,7 @@ import {Bond} from '../model/bond.entity';
 import {catchError, Observable, retry} from 'rxjs';
 import {CashFlow} from '../model/cash-flow.entity';
 import {Router} from '@angular/router';
+import {BondResult} from '../model/bond-result.entity';
 
 @Injectable({
   providedIn: 'root'
@@ -40,13 +41,19 @@ export class BondsApiService extends BaseApiService<Bond> {
       .pipe(retry(2), catchError(this.handleError));
   }
 
-
   getAllBondsOfIssuer(): Observable<Bond[]> {
     return this.http.get<Bond[]>(`http://localhost:8080/api/v1/issuers/bonds`, this.httpOptions)
       .pipe(retry(2), catchError(this.handleError));
   }
+
   getAllHiredBondsOfIssuer(): Observable<Bond[]> {
     return this.http.get<Bond[]>(`http://localhost:8080/api/v1/issuers/bonds/hired`, this.httpOptions)
       .pipe(retry(2), catchError(this.handleError));
   }
+
+  getBondResultById(id: number): Observable<BondResult> {
+    return this.http.get<BondResult>(`${this.resourcePath()}/${id}/result`, this.httpOptions)
+      .pipe(retry(2), catchError(this.handleError));
+  }
+
 }
