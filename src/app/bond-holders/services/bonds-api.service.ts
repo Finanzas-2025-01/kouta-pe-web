@@ -35,7 +35,7 @@ export class BondsApiService extends BaseApiService<Bond> {
 
   updatePeriodGraceByBondIdAndPeriodNumber(bondId: number , periodNumber: number, gracePeriod: string): Observable<any>{
     return this.http.patch(`${this.resourcePath()}/${bondId}/cashFlows/${periodNumber}/gracePeriod`,  `"${gracePeriod}"` , this.httpOptions)
-      .pipe(catchError(this.handleError));
+      .pipe(retry(2),catchError(this.handleError));
   }
 
   getAllBondsOfBondHolder(): Observable<Bond[]> {
@@ -55,6 +55,11 @@ export class BondsApiService extends BaseApiService<Bond> {
 
   getBondResultById(id: number): Observable<BondResult> {
     return this.http.get<BondResult>(`${this.resourcePath()}/${id}/result`, this.httpOptions)
+      .pipe(retry(2), catchError(this.handleError));
+  }
+
+  hireBond(bondId: number): Observable<any> {
+    return this.http.post(`${this.resourcePath()}/${bondId}/hire`, this.httpOptions)
       .pipe(retry(2), catchError(this.handleError));
   }
 }
