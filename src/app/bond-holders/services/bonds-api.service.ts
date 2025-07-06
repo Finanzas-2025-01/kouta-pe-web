@@ -35,4 +35,15 @@ export class BondsApiService extends BaseApiService<Bond> {
       .pipe(catchError(this.handleError));
   }
 
+  getAllBondsOfBondHolder(): Observable<Bond[]> {
+    return this.http.get<Bond[]>(`http://localhost:8080/api/v1/bond-holders/bonds`, this.httpOptions)
+      .pipe(retry(2), catchError(this.handleError));
+  }
+
+
+  getAllBondsOfIssuer(): Observable<Bond[]> {
+    return this.http.get<Bond[]>(`http://localhost:8080/api/v1/issuers/bonds`, this.httpOptions)
+      .pipe(retry(2), catchError(this.handleError));
+  }
+
 }
