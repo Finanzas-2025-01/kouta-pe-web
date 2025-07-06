@@ -1,27 +1,22 @@
 import {Component, inject} from '@angular/core';
 import {BondsApiService} from '../../../bond-holders/services/bonds-api.service';
-import {Bond} from '../../../bond-holders/model/bond.entity';
-import {BondCardComponent} from '../../../bond-holders/components/bond-card/bond-card.component';
-import {NgForOf, NgIf} from '@angular/common';
-import {BondCardListComponent} from '../../../bond-holders/components/bond-card-list/bond-card-list.component';
+import {HiredBond} from '../../model/hiredBond.entity';
+import {HiredBondCardListComponent} from '../../components/hired-bond-card-list/hired-bond-card-list.component';
 
 @Component({
   selector: 'app-hired-bonds',
   imports: [
-    BondCardComponent,
-    NgForOf,
-    NgIf,
-    BondCardListComponent
+    HiredBondCardListComponent
   ],
   templateUrl: './hired-bonds.html',
   styleUrl: './hired-bonds.css'
 })
 export class HiredBonds {
   private bonsApiService = inject(BondsApiService);
-  bonds: Array<Bond> = [];
+  bonds: Array<HiredBond> = [];
 
   private getData() {
-    this.bonsApiService.getAllHiredBondsOfIssuer().subscribe((response: Array<Bond>) => {
+    this.bonsApiService.getAllHiredBondsOfIssuer().subscribe((response: Array<HiredBond>) => {
       this.bonds = response;
     }, error => {
       console.error('There was an error fetching bonds!', error);

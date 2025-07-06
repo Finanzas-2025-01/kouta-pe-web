@@ -1,0 +1,80 @@
+<mat-card class="bond-card">
+  <div class="bond-card-header">
+    <div style="padding: 10px">
+      <p style="text-align: center; font-weight: bold">{{bond.name}}</p>
+    </div>
+    <div style="height: 1px; background: black"></div>
+    <div class="bond-card-issuer">
+      <div class="bond-card-issuer-column-1">
+        <p>Bono emitido por:</p>
+      </div>
+      <div class="bond-card-issuer-column-2">
+        <div style="align-content: center">
+          <p>{{bond.bondHolder.name}} {{bond.bondHolder.surname}}</p>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="bond-card-content">
+    <div class="bond-card-content-row">
+      <div class="bond-card-content-column-1">
+        <p>Valor nominal:</p>
+      </div>
+      <div class="bond-card-content-column-2">
+        <p>{{bond.nominalValue}}</p>
+      </div>
+    </div>
+    <div class="bond-card-content-row">
+      <div class="bond-card-content-column-1">
+        <p>Valor comercial:</p>
+      </div>
+      <div class="bond-card-content-column-2">
+        <p>{{bond.comercialValue}}</p>
+      </div>
+    </div>
+    <div class="bond-card-content-row">
+      <div class="bond-card-content-column-1">
+        <p>Años de vigencia:</p>
+      </div>
+      <div class="bond-card-content-column-2">
+        <p>{{bond.years}}</p>
+      </div>
+    </div>
+    <div class="bond-card-content-row">
+      <div class="bond-card-content-column-1">
+        <p>Tipo de tasa:</p>
+      </div>
+      <div class="bond-card-content-column-2">
+        <span [ngSwitch]="bond.interestRateType">
+          <span *ngSwitchCase="'EFFECTIVE'">Efectiva</span>
+          <span *ngSwitchCase="'NOMINAL'">Nominal</span>
+          <span *ngSwitchDefault>{{ bond.interestRateType }}</span>
+        </span>
+      </div>
+    </div>
+    <div class="bond-card-content-row">
+      <div class="bond-card-content-column-1">
+        <p>Tasa:</p>
+      </div>
+      <div class="bond-card-content-column-2">
+        <p>{{bond.interestRatePercentage}}%</p>
+      </div>
+    </div>
+    <div class="bond-card-content-row">
+      <div class="bond-card-content-column-1">
+        <p>Frecuencia del cupón:</p>
+      </div>
+      <div class="bond-card-content-column-2">
+        <span [ngSwitch]="bond.cuponFrequency">
+          <span *ngSwitchCase="'MONTHLY'">Mensual</span>
+          <span *ngSwitchCase="'BIMONTHLY'">Bimestral</span>
+          <span *ngSwitchCase="'TRIMESTRAL'">Trimestral</span>
+          <span *ngSwitchCase="'QUADRIMONTHLY'">Cuatrimestral</span>
+          <span *ngSwitchCase="'SEMIANNUAL'">Semestral</span>
+          <span *ngSwitchCase="'ANNUAL'">Anual</span>
+          <span *ngSwitchDefault>{{ bond.cuponFrequency }}</span>
+        </span>
+      </div>
+    </div>
+  </div>
+</mat-card>

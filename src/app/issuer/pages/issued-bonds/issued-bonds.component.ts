@@ -8,9 +8,6 @@ import {BondCardListComponent} from '../../../bond-holders/components/bond-card-
 @Component({
   selector: 'app-issued-bonds',
   imports: [
-    BondCardComponent,
-    NgForOf,
-    NgIf,
     BondCardListComponent
   ],
   templateUrl: './issued-bonds.component.html',
