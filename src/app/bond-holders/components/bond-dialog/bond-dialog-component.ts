@@ -49,6 +49,10 @@ export class BondDialogComponent {
     return localStorage.getItem('role') === 'ROLE_ISSUER';
   }
 
+  get isBaseBond(): boolean{
+    return this.bond.bondType === 'BASE';
+  }
+
   get isBondHolder(): boolean {
     return localStorage.getItem('role') === 'ROLE_BONDHOLDER';
   }
