@@ -23,6 +23,7 @@ export class BondCardListComponent {
     this.bonsApiService.getAllBonds().subscribe((response: Array<Bond>) => {
       this.bonds = response;
       console.log('Tamaño del array de bonos'+this.bonds.length);
+
     }, error => {
       console.error('There was an error fetching bonds!', error);
     });
