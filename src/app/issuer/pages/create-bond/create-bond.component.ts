@@ -30,7 +30,7 @@ export class CreateBondComponent {
 
   // Enum options for selectors
   cuponFrequencies = [
-    'MONTHLY', 'BIMONTHLY', 'TRIMONTHLY', 'QUADRIMONTHLY', 'SEMIANNUAL', 'ANNUAL'
+    'MONTHLY', 'BIMONTHLY', 'TRIMESTRAL', 'QUADRIMONTHLY', 'SEMIANNUAL', 'ANNUAL'
   ];
   capitalizations = [
     'NONE', 'DAILY', 'BIWEEKLY', 'MONTHLY', 'BIMONTHLY', 'TRIMONTHLY', 'QUADRIMONTHLY', 'SEMIANNUAL', 'ANNUAL'
@@ -47,7 +47,7 @@ export class CreateBondComponent {
   cuponFrequenciesLabels: {[key: string]: string} = {
     'MONTHLY': 'Mensual',
     'BIMONTHLY': 'Bimestral',
-    'TRIMONTHLY': 'Trimestral',
+    'TRIMESTRAL': 'Trimestral',
     'QUADRIMONTHLY': 'Cuatrimestral',
     'SEMIANNUAL': 'Semestral',
     'ANNUAL': 'Anual'
