@@ -3,13 +3,14 @@ import { BaseApiService } from '../../shared/services/base-api.service';
 import {Bond} from '../model/bond.entity';
 import {catchError, Observable, retry} from 'rxjs';
 import {CashFlow} from '../model/cash-flow.entity';
+import {Router} from '@angular/router';
 
 @Injectable({
   providedIn: 'root'
 })
 export class BondsApiService extends BaseApiService<Bond> {
 
-  constructor() {
+  constructor(private router: Router) {
     super();
     this.resourceEndPoint = '/bonds';
   }
@@ -24,6 +25,16 @@ export class BondsApiService extends BaseApiService<Bond> {
       .pipe(retry(2), catchError(this.handleError));
   }
 
+  getBondById(id: number): Observable<Bond> {
+    return this.http.get<Bond>(`${this.resourcePath()}/${id}`, this.httpOptions)
+      .pipe(retry(2), catchError(this.handleError));
+  }
+
+  updatePeriodGraceByBondIdAndPeriodNumber(bondId: number , periodNumber: number, gracePeriod: string): Observable<any>{
+    return this.http.patch(`${this.resourcePath()}/${bondId}/cashFlows/${periodNumber}/gracePeriod`,  `"${gracePeriod}"` , this.httpOptions)
+      .pipe(catchError(this.handleError));
+  }
+
   getAllBondsOfBondHolder(): Observable<Bond[]> {
     return this.http.get<Bond[]>(`http://localhost:8080/api/v1/bond-holders/bonds`, this.httpOptions)
       .pipe(retry(2), catchError(this.handleError));
@@ -34,4 +45,5 @@ export class BondsApiService extends BaseApiService<Bond> {
     return this.http.get<Bond[]>(`http://localhost:8080/api/v1/issuers/bonds`, this.httpOptions)
       .pipe(retry(2), catchError(this.handleError));
   }
+
 }
