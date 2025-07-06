@@ -40,13 +40,16 @@
     <div>
       <mat-form-field appearance="fill">
         <mat-label>Días por año</mat-label>
-        <input matInput formControlName="daysPerYear" type="number" min="0" />
+        <mat-select formControlName="daysPerYear">
+          <mat-option [value]="360">360</mat-option>
+          <mat-option [value]="365">365</mat-option>
+        </mat-select>
       </mat-form-field>
     </div>
     <div>
       <mat-form-field appearance="fill">
         <mat-label>Tipo de tasa de interés</mat-label>
-        <mat-select formControlName="interestRateType">
+        <mat-select formControlName="interestRateType" (selectionChange)="onInterestRateTypeChange($event.value)">
           <mat-option *ngFor="let type of interestRateTypes" [value]="type">{{ interestRateTypesLabels[type] }}</mat-option>
         </mat-select>
       </mat-form-field>
@@ -54,7 +57,7 @@
     <div>
       <mat-form-field appearance="fill">
         <mat-label>Capitalización</mat-label>
-        <mat-select formControlName="capitalization">
+        <mat-select formControlName="capitalization" [disabled]="bondForm.get('interestRateType')?.value === 'EFFECTIVE'">
           <mat-option *ngFor="let cap of capitalizations" [value]="cap">{{ capitalizationsLabels[cap] }}</mat-option>
         </mat-select>
       </mat-form-field>

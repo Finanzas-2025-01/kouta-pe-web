@@ -9,6 +9,7 @@ import { MatSelectModule } from '@angular/material/select';
 import { MatButtonModule } from '@angular/material/button';
 import { MatDatepickerModule } from '@angular/material/datepicker';
 import { MatNativeDateModule } from '@angular/material/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-create-bond',
@@ -67,14 +68,14 @@ export class CreateBondComponent {
     'NOMINAL': 'Nominal'
   };
 
-  constructor(private fb: FormBuilder, private http: HttpClient) {
+  constructor(private fb: FormBuilder, private http: HttpClient, private router: Router) {
     this.bondForm = this.fb.group({
       name: ['', Validators.required],
       nominalValue: [0, Validators.required],
       comercialValue: [0, Validators.required],
       years: [0, Validators.required],
       cuponFrequency: ['MONTHLY', Validators.required],
-      daysPerYear: [0, Validators.required],
+      daysPerYear: [360, Validators.required],
       interestRateType: ['EFFECTIVE', Validators.required],
       capitalization: ['NONE', Validators.required],
       interestRatePercentage: [0, Validators.required],
@@ -90,30 +91,50 @@ export class CreateBondComponent {
     });
   }
 
+  onInterestRateTypeChange(type: string) {
+    if (type === 'EFFECTIVE') {
+      this.bondForm.get('capitalization')?.setValue('NONE');
+      this.bondForm.get('capitalization')?.disable();
+    } else {
+      this.bondForm.get('capitalization')?.enable();
+    }
+  }
+
+  ngOnInit() {
+    // Set initial state for capitalization
+    if (this.bondForm.get('interestRateType')?.value === 'EFFECTIVE') {
+      this.bondForm.get('capitalization')?.setValue('NONE');
+      this.bondForm.get('capitalization')?.disable();
+    }
+  }
+
   onSubmit() {
     if (this.bondForm.valid) {
       const bondData = {
         ...this.bondForm.value,
         issueDate: new Date(this.bondForm.value.issueDate).toISOString()
       };
-      this.http.post('http://localhost:8080/api/v1/bonds', bondData)
-        .subscribe({
-          next: (res) => {
-            this.successMessage = '¡Bono creado exitosamente!';
-            this.errorMessage = '';
-            this.bondForm.reset();
-            setTimeout(() => {
-              this.successMessage = '';
-            }, 3500);
-          },
-          error: (err) => {
-            this.errorMessage = 'Ocurrió un error al crear el bono.';
-            this.successMessage = '';
-            setTimeout(() => {
+      this.http.post<any>('http://localhost:8080/api/v1/bonds', bondData)
+          .subscribe({
+            next: (res) => {
+              this.successMessage = '¡Bono creado exitosamente!';
               this.errorMessage = '';
-            }, 3500);
-          }
-        });
+              // Redirigir al cashflow del bono creado (usa el id retornado)
+              setTimeout(() => {
+                this.successMessage = '';
+                if (res && res.id) {
+                  this.router.navigate(['/issuer/bonds', res.id, 'cashflow']);
+                }
+              }, 1200);
+            },
+            error: (err) => {
+              this.errorMessage = 'Ocurrió un error al crear el bono.';
+              this.successMessage = '';
+              setTimeout(() => {
+                this.errorMessage = '';
+              }, 3500);
+            }
+          });
     }
   }
 }
