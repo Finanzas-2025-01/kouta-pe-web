@@ -4,6 +4,7 @@ import { ActivatedRoute } from '@angular/router';
 import { HttpClient } from '@angular/common/http';
 import { CommonModule } from '@angular/common';
 import { Router } from '@angular/router';
+import {environment} from '../../../../environments/environment';
 
 @Component({
   selector: 'app-edit-bond',
@@ -40,7 +41,7 @@ export class EditBondComponent implements OnInit {
   ngOnInit() {
     this.bondId = this.route.snapshot.paramMap.get('id');
     if (this.bondId) {
-      this.http.get<any>(`http://localhost:8080/api/v1/bonds/${this.bondId}`)
+      this.http.get<any>(`${environment.baseUrl}/bonds/${this.bondId}`)
         .subscribe({
           next: (bond) => {
             this.bondName = bond.name;
