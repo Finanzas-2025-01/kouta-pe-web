@@ -16,19 +16,56 @@
     </div>
   </div>
   <div class="bond-card-content">
-    <p>Valor nominal: {{bond.nominalValue}}</p>
-    <p>Valor comercial: {{bond.comercialValue}}</p>
-    <p>Años de vigencia: {{bond.years}}</p>
-    <p>Tipo de tasa:
-      <span [ngSwitch]="bond.interestRateType">
+    <div class="bond-card-content-row">
+      <div class="bond-card-content-column-1">
+        <p>Valor nominal:</p>
+      </div>
+      <div class="bond-card-content-column-2">
+        <p>{{bond.nominalValue}}</p>
+      </div>
+    </div>
+    <div class="bond-card-content-row">
+      <div class="bond-card-content-column-1">
+        <p>Valor comercial:</p>
+      </div>
+      <div class="bond-card-content-column-2">
+        <p>{{bond.comercialValue}}</p>
+      </div>
+    </div>
+    <div class="bond-card-content-row">
+      <div class="bond-card-content-column-1">
+        <p>Años de vigencia:</p>
+      </div>
+      <div class="bond-card-content-column-2">
+        <p>{{bond.years}}</p>
+      </div>
+    </div>
+    <div class="bond-card-content-row">
+      <div class="bond-card-content-column-1">
+        <p>Tipo de tasa:</p>
+      </div>
+      <div class="bond-card-content-column-2">
+        <span [ngSwitch]="bond.interestRateType">
           <span *ngSwitchCase="'EFFECTIVE'">Efectiva</span>
           <span *ngSwitchCase="'NOMINAL'">Nominal</span>
           <span *ngSwitchDefault>{{ bond.interestRateType }}</span>
         </span>
-    </p>
-    <p>Tasa: {{bond.interestRatePercentage}}%</p>
-    <p>Frecuencia del cupón:
-      <span [ngSwitch]="bond.cuponFrequency">
+      </div>
+    </div>
+    <div class="bond-card-content-row">
+      <div class="bond-card-content-column-1">
+        <p>Tasa:</p>
+      </div>
+      <div class="bond-card-content-column-2">
+        <p>{{bond.interestRatePercentage}}%</p>
+      </div>
+    </div>
+    <div class="bond-card-content-row">
+      <div class="bond-card-content-column-1">
+        <p>Frecuencia del cupón:</p>
+      </div>
+      <div class="bond-card-content-column-2">
+        <span [ngSwitch]="bond.cuponFrequency">
           <span *ngSwitchCase="'MONTHLY'">Mensual</span>
           <span *ngSwitchCase="'BIMONTHLY'">Bimestral</span>
           <span *ngSwitchCase="'TRIMESTRAL'">Trimestral</span>
@@ -37,6 +74,7 @@
           <span *ngSwitchCase="'ANNUAL'">Anual</span>
           <span *ngSwitchDefault>{{ bond.cuponFrequency }}</span>
         </span>
-    </p>
+      </div>
+    </div>
   </div>
 </mat-card>
