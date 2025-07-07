@@ -10,6 +10,7 @@ import { MatButtonModule } from '@angular/material/button';
 import { MatDatepickerModule } from '@angular/material/datepicker';
 import { MatNativeDateModule } from '@angular/material/core';
 import { Router } from '@angular/router';
+import {environment} from '../../../../environments/environment';
 
 @Component({
   selector: 'app-create-bond',
@@ -30,7 +31,7 @@ export class CreateBondComponent {
 
   // Enum options for selectors
   cuponFrequencies = [
-    'MONTHLY', 'BIMONTHLY', 'TRIMONTHLY', 'QUADRIMONTHLY', 'SEMIANNUAL', 'ANNUAL'
+    'MONTHLY', 'BIMONTHLY', 'TRIMESTRAL', 'QUADRIMONTHLY', 'SEMIANNUAL', 'ANNUAL'
   ];
   capitalizations = [
     'NONE', 'DAILY', 'BIWEEKLY', 'MONTHLY', 'BIMONTHLY', 'TRIMONTHLY', 'QUADRIMONTHLY', 'SEMIANNUAL', 'ANNUAL'
@@ -47,7 +48,7 @@ export class CreateBondComponent {
   cuponFrequenciesLabels: {[key: string]: string} = {
     'MONTHLY': 'Mensual',
     'BIMONTHLY': 'Bimestral',
-    'TRIMONTHLY': 'Trimestral',
+    'TRIMESTRAL': 'Trimestral',
     'QUADRIMONTHLY': 'Cuatrimestral',
     'SEMIANNUAL': 'Semestral',
     'ANNUAL': 'Anual'
@@ -114,7 +115,7 @@ export class CreateBondComponent {
         ...this.bondForm.value,
         issueDate: new Date(this.bondForm.value.issueDate).toISOString()
       };
-      this.http.post<any>('https://bond-cash-backend.onrender.com/api/v1/bonds', bondData)
+      this.http.post<any>(`${environment.baseUrl}/bonds`, bondData)
           .subscribe({
             next: (res) => {
               this.successMessage = '¡Bono creado exitosamente!';

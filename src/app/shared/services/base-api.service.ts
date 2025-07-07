@@ -9,7 +9,7 @@ export abstract class BaseApiService<T> {
   protected httpOptions = { headers: new HttpHeaders({ 'Content-Type': 'application/json'})};
 
   /** Base URL for the server API */
-  protected baseUrl: string = `https://bond-cash-backend.onrender.com/api/v1`;
+  protected baseUrl: string = `${environment.baseUrl}`;
 
   protected resourceEndPoint: string = '/resources';
 

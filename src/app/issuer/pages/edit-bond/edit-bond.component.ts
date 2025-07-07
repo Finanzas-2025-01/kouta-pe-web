@@ -4,6 +4,7 @@ import { ActivatedRoute } from '@angular/router';
 import { HttpClient } from '@angular/common/http';
 import { CommonModule } from '@angular/common';
 import { Router } from '@angular/router';
+import {environment} from '../../../../environments/environment';
 
 @Component({
   selector: 'app-edit-bond',
@@ -40,7 +41,7 @@ export class EditBondComponent implements OnInit {
   ngOnInit() {
     this.bondId = this.route.snapshot.paramMap.get('id');
     if (this.bondId) {
-      this.http.get<any>(`https://bond-cash-backend.onrender.com/api/v1/bonds/${this.bondId}`)
+      this.http.get<any>(`${environment.baseUrl}/bonds/${this.bondId}`)
         .subscribe({
           next: (bond) => {
             this.bondName = bond.name;
@@ -64,7 +65,7 @@ export class EditBondComponent implements OnInit {
 
   onSubmit() {
     if (this.bondForm.valid && this.bondId) {
-      this.http.put(`https://bond-cash-backend.onrender.com/api/v1/bonds/${this.bondId}`, this.bondForm.value)
+      this.http.put(`${environment.baseUrl}/bonds/${this.bondId}`, this.bondForm.value)
         .subscribe({
           next: () => {
             this.successMessage = '¡Bono actualizado exitosamente!';
