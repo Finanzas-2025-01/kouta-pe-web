@@ -45,23 +45,8 @@ interface Currency {
   ],
   template: `
     <section class="space-y-8">
-      <div class="flex justify-around items-center mt-8">
-        <h1 class="text-5xl md:text-6xl lg:text-7xl font-semibold">{{ bond?.name }}</h1>
-        @if (bondResult){
-          <div class="bg-(--mat-sys-surface) grid grid-cols-2 gap-4 border-y border-(--mat-sys-outline) p-4">
-            <p> Duración </p>
-            <p [ngClass]="{'text-red-500': bondResult.duration < 0, 'text-blue-500': bondResult.duration >= 0}"> {{ bondResult.duration | number:'1.0-4' }} </p>
-            <p> Convexidad </p>
-            <p [ngClass]="{'text-red-500': bondResult.convexity < 0, 'text-blue-500': bondResult.convexity >= 0}"> {{ bondResult.convexity | number:'1.0-4' }} </p>
-            <p> Duración modificada </p>
-            <p [ngClass]="{'text-red-500': bondResult.modifiedDuration < 0, 'text-blue-500': bondResult.modifiedDuration >= 0}"> {{ bondResult.modifiedDuration | number:'1.0-4' }} </p>
-            <p> TCEA </p>
-            <p [ngClass]="{'text-red-500': bondResult.percentageTCEA < 0, 'text-blue-500': bondResult.percentageTCEA >= 0}"> {{ bondResult.percentageTCEA | number:'1.0-4' }} % </p>
-            <p> TREA </p>
-            <p [ngClass]="{'text-red-500': bondResult.percentageTREA < 0, 'text-blue-500': bondResult.percentageTREA >= 0}"> {{ bondResult.percentageTREA | number:'1.0-4' }} % </p>
-
-          </div>
-        }
+      <div class="text-center mt-8">
+        <h1 class="text-5xl md:text-6xl lg:text-7xl font-semibold">{{bond?.name}}</h1>
       </div>
       <div>
         <div class="flex justify-between items-center p-4 border-y border-(--mat-sys-outline) bg-(--mat-sys-surface)">
@@ -72,13 +57,13 @@ interface Currency {
               <mat-label>Moneda Actual</mat-label>
               <mat-select [(ngModel)]="currentCurrency">
                 @for (currency of supportedCurrencies; track currency.value) {
-                  <mat-option [value]="currency.value">{{ currency.viewValue }}</mat-option>
+                  <mat-option [value]="currency.value" >{{currency.viewValue}}</mat-option>
                 }
               </mat-select>
             </mat-form-field>
 
-            @if (isIssuer && !isHired) {
-              <button matButton (click)="goToEditBond(bondId)">Editar Bono</button>
+            @if(isIssuer){
+              <button matButton>Editar Bono</button>
             }
           </div>
         </div>
@@ -134,8 +119,6 @@ interface Currency {
           </cdk-virtual-scroll-viewport>
         </div>
       </div>
-
-
     </section>
   `,
   styles: ``,
@@ -154,9 +137,9 @@ export class BondCashflowComponent {
   bond: Bond | undefined;
   cashFlowData: CashFlow[] = [];
   accordionStates: boolean[] = [];
+
   isIssuer: boolean = false;
   currentCurrency: string = 'USD';
-  bondResult: BondResult | undefined;
 
   exchangeRates: { [key: string]: number } = {
     'USD': 1,
@@ -197,8 +180,6 @@ export class BondCashflowComponent {
         this.cdr.markForCheck();
       }
     });
-
-
   }
 
   loadCashFlow() {
@@ -213,7 +194,6 @@ export class BondCashflowComponent {
         console.error('Error fetching cashflow data:', error);
       }
     });
-
     this.bondsApiService.getBondResultById(this.bondId).subscribe({
       next: (data) => {
         this.bondResult = data;
@@ -228,7 +208,6 @@ export class BondCashflowComponent {
   trackByPeriodNumber(index: number, item: CashFlow): number {
     return item.periodNumber;
   }
-
   // Toggles the accordion state
   toggleAccordion(index: number) {
     const currentState = this.accordionStates[index];
@@ -250,15 +229,15 @@ export class BondCashflowComponent {
     this.bondsApiService.updatePeriodGraceByBondIdAndPeriodNumber(bondId, periodNumber, gracePeriod).subscribe({
       next: () => {
         console.log(`Grace period for bond ${bondId}, period ${periodNumber} updated to ${gracePeriod}`);
-        this.loadCashFlow(); // Reload data to show changes
+        this.loadCashFlow();
       },
       error: (err) => {
         console.error('Error updating grace period', err);
       }
     });
   }
-
   goToEditBond(id: number) {
     this.router.navigate([`/bonds/${id}/edit`]);
   }
+
 }
